@@ -1,11 +1,16 @@
 import { useState } from 'react';
-import ListProducts from './components/ListProducts.tsx';
 import { products as initialProducts } from './mocks/products.json';
+import ListProducts from './components/ListProducts.tsx';
+import Header from './components/Header.tsx';
 
 function App(): JSX.Element {
   const [products, setProducts] = useState<AllProducts>(initialProducts);
-  const [filters, setFilters] = useState({ category: 'all', minPrice: 0 });
+  const [filters, setFilters] = useState({
+    minPrice: 0,
+    category: 'all',
+  });
 
+  //función para filtrar productos por precio y/o por categoría
   const filterProducts = (products: AllProducts) => {
     return products.filter(product => {
       return (
@@ -15,12 +20,13 @@ function App(): JSX.Element {
     });
   };
 
-  //metemos la función en una constante
+  //metemos la función de filtrar en una constante
   const filteredProducts = filterProducts(products);
+
   return (
     <>
-      <h1>My Ecommerce</h1>
-      <ListProducts products={filteredProducts} />;
+      <Header onChangeFilters={setFilters} />
+      <ListProducts products={filteredProducts} />
     </>
   );
 }

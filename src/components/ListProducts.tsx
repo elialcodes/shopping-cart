@@ -21,7 +21,6 @@ function ListProducts({ products }: LisProductsProps) {
           </li>
         ))}
       </ul>
-      ;
     </main>
   );
 }
