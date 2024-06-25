@@ -12,6 +12,4 @@ interface Product {
   images: string[];
 }
 
-interface AllProducts {
-  products: Product[];
-}
+type AllProducts = Product[];

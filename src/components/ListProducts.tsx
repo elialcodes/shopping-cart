@@ -1,7 +1,9 @@
 import '../styles/ListProducts.css';
 import { AddToCartIcon } from './icons';
 
-type LisProductsProps = AllProducts;
+interface LisProductsProps {
+  products: AllProducts;
+}
 
 function ListProducts({ products }: LisProductsProps) {
   return (
@@ -11,7 +13,7 @@ function ListProducts({ products }: LisProductsProps) {
           <li key={product.id}>
             <img src={product.thumbnail} alt={product.title} />
             <div>
-              <strong>{product.title}</strong>
+              <strong>{product.title}</strong> - ${product.price}
             </div>
             <button>
               <AddToCartIcon />
