@@ -1,5 +1,13 @@
-function App() {
-  return <h1>App</h1>;
+import ListProducts from './components/ListProducts.tsx';
+import products from './mocks/products.json';
+
+function App(): JSX.Element {
+  return (
+    <>
+      <h1>My Ecommerce</h1>
+      <ListProducts products={products.products} />;
+    </>
+  );
 }
 
 export default App;
