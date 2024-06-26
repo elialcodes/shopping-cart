@@ -1,48 +1,58 @@
-import { useState } from 'react';
+import { useId } from 'react';
+import { useFilters } from '../hooks/useFilters';
 import '../styles/Filters.css';
 
-interface FiltersProps {
-  onChangeFilters: (minPrice: number, category: string) => void;
-}
+function Filters() {
+  //de nuestro custom hook nos traemos filters y setFilters
+  const { filters, setFilters } = useFilters();
 
-function Filters({ onChangeFilters }: FiltersProps) {
-  //estado interno del componente para mostrar al renderizar el valor del rango
-  const [minPrice, setMinPrice] = useState<number>(0);
+  //usamos useId para hacer únicos los ids de los inputs, no requiere de argumentos
+  //ni nada y genera aleatoriamente un string que siempre será el mismo
+  const minPriceFilterId = useId();
+  const categoryFilterId = useId();
 
-  const handleChangeMinPrice = (event: React.FormEvent<HTMLSpanElement>) => {
-    setMinPrice(event.target.value);
-
-    onChangeFilters(prevState => ({
+  //función para setear el valor del filtro minPrice
+  const handleChangeMinPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //con spreed tomamos el valor de filters y sólo sobreescribimos la propiedad minPrice
+    setFilters(prevState => ({
       ...prevState,
-      minPrice: event.target.value,
+      minPrice: Number(event.target.value),
     }));
   };
 
+  //función para setear el estado del filtro category
   const handleChangeCategory = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    onChangeFilters(prevState => ({
+    //con spreed tomamos el valor de filters y sólo sobreescribimos la propiedad category
+    setFilters(prevState => ({
       ...prevState,
       category: event.target.value,
     }));
   };
+
   return (
     <section className="filters">
       <div>
-        <label htmlFor="price">Price</label>
+        <label htmlFor={minPriceFilterId}>Price</label>
         <input
           type="range"
-          id="price"
+          id={minPriceFilterId}
           min="0"
           max="2000"
+          value={filters.minPrice}
           onChange={handleChangeMinPrice}
         />
-        {/* renderizamos el estado interno del componente: */}
-        <span>{minPrice}</span>
+        <span>$ {filters.minPrice}</span>
       </div>
       <div>
-        <label htmlFor="category">Categoría</label>
-        <select name="category" id="category" onChange={handleChangeCategory}>
+        <label htmlFor={categoryFilterId}>Category</label>
+        <select
+          name="category"
+          id={categoryFilterId}
+          value={filters.category}
+          onChange={handleChangeCategory}
+        >
           <option value="all">All</option>
           <option value="home-decoration">Home Decoration</option>
           <option value="laptops">Laptops</option>

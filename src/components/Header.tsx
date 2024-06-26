@@ -1,14 +1,14 @@
 import Filters from './Filters';
 
-interface HeaderProps {
-  onChangeFilters: (minPrice: number, category: string) => void;
-}
+// interface HeaderProps {
+//   onChangeFilters: (minPrice: number, category: string) => void;
+// }
 
-function Header({ onChangeFilters }: HeaderProps): JSX.Element {
+function Header(): JSX.Element {
   return (
     <header>
       <h1>My Ecommerce</h1>
-      <Filters onChangeFilters={onChangeFilters} />
+      <Filters />
     </header>
   );
 }

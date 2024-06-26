@@ -13,3 +13,13 @@ interface Product {
 }
 
 type AllProducts = Product[];
+
+interface Filters {
+  minPrice: number;
+  category: string;
+}
+
+interface FiltersContextProps {
+  filters: Filters;
+  setFilters: Dispatch<SetStateAction<Filters>>;
+}
