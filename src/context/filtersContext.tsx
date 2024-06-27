@@ -18,15 +18,16 @@ interface FiltersProviderType {
 }
 
 //HACEMOS EL CONTEXT:
-//1. creamos el contexto a consumir, lo tipamos y su valor será undefined por defecto
+//1. CREAMOS EL CONTEXTO a consumir, lo tipamos y su valor será undefined por defecto
 export const FiltersContext = createContext<FiltersContextType | undefined>(
   undefined
 );
 
-//2. creamos el provider (el proveedor del context) para que lo usen
+//2. CREAMOS EL PROVIDER (el proveedor del context) para que lo usen
 //los componentes que lo necesiten:
 //- creamos una función con el parámetro children
-//- metemos en ella el estado de filtros, que entonces pasará a ser un estado global
+//- metemos en ella el estado de filtros, y entonces estos valores pasarán a ser
+//  un estado global
 //- en el return tomamos el contexto creado, accedemos a su función .Provider,
 //  y pasamos por props el estado global para que el children pueda acceder a él
 //- el .Provider tiene que envolver lo que sea que le pasemos como children, y en
@@ -36,7 +37,7 @@ export function FiltersProvider({ children }: FiltersProviderType) {
     minPrice: 0,
     category: 'all',
   });
-  console.log(filters);
+
   return (
     <FiltersContext.Provider value={{ filters, setFilters }}>
       {children}

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { products as initialProducts } from './mocks/products.json';
 import { useFilters } from './hooks/useFilters.tsx';
-import ListProducts from './components/ListProducts.tsx';
+import { CartProvider } from './context/cartContext.tsx';
+import Cart from './components/Cart.tsx';
 import Header from './components/Header.tsx';
+import ListProducts from './components/ListProducts.tsx';
 
 function App(): JSX.Element {
   //metemos en un estado el listado del JSON, sin función de setear pues en
@@ -18,10 +20,13 @@ function App(): JSX.Element {
   const filteredProducts = filterProducts(products);
 
   return (
-    <>
+    //envolvemos con CartProvider para que su children tenga acceso a ese
+    //context (CartContext), no necesitamos envolver la App, hay otro scope
+    <CartProvider>
+      <Cart />
       <Header />
       <ListProducts products={filteredProducts} />
-    </>
+    </CartProvider>
   );
 }
 

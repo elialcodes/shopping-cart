@@ -23,3 +23,10 @@ interface FiltersContextProps {
   filters: Filters;
   setFilters: Dispatch<SetStateAction<Filters>>;
 }
+
+interface CartContextType {
+  cart: AllProducts;
+  setCart: Dispatch<SetStateAction<AllProducts>>;
+  addToCart: (product: Product) => void;
+  clearCart: () => void;
+}
