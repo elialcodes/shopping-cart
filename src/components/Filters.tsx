@@ -3,7 +3,9 @@ import { useFilters } from '../hooks/useFilters';
 import '../styles/Filters.css';
 
 function Filters() {
-  //de nuestro custom hook nos traemos filters y setFilters
+  //de nuestro hook nos traemos los valores de filters y setFilters,
+  //nada ha sido pasado por props, porque a través del hook, que tiene el context,
+  //accedemos el estado global
   const { filters, setFilters } = useFilters();
 
   //usamos useId para hacer únicos los ids de los inputs, no requiere de argumentos

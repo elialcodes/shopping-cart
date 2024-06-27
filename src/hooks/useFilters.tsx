@@ -1,12 +1,12 @@
-import { useContext } from 'react';
+import { useContext } from 'react'; //importamos el estado global que hemos creado
 import { FiltersContext } from '../context/filtersContext';
 
 //custom hook donde hemos extraído la lógica de los filtros, es una caja negra
-//y extraíble para ser reutilizada en otro componente o aplicación
+//y extraíble que puede ser reutilizada en otro componente o aplicación
 
 export function useFilters() {
   //metemos aquí el useContext que hemos creado con el estado global de los filtros
-  //para tomar los valores de filters y la función que setea los filters
+  //para asi tomar los valores de filters y la función que setea los filters
   //con "as" forzamos el tipado
   const { filters, setFilters } = useContext(FiltersContext) as {
     filters: Filters;
@@ -24,6 +24,6 @@ export function useFilters() {
     });
   };
   //extraemos los filtros, la función que setea el valor de los filtros
-  //y la función de filtrar
+  //y la función de filtrar para que se pueda usar en otros componentes
   return { filters, filterProducts, setFilters };
 }

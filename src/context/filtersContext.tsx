@@ -24,15 +24,19 @@ export const FiltersContext = createContext<FiltersContextType | undefined>(
 );
 
 //2. creamos el provider (el proveedor del context) para que lo usen
-//los componentes que lo necesiten: tomamos el contexto creado, accedemos a
-//su función .Provider y tiene que envolver lo que sea que
-//le pasamos como children
+//los componentes que lo necesiten:
+//- creamos una función con el parámetro children
+//- metemos en ella el estado de filtros, que entonces pasará a ser un estado global
+//- en el return tomamos el contexto creado, accedemos a su función .Provider,
+//  y pasamos por props el estado global para que el children pueda acceder a él
+//- el .Provider tiene que envolver lo que sea que le pasemos como children, y en
+//  nuestro caso, children será App, es decir, toda la aplicación (ver main.jsx)
 export function FiltersProvider({ children }: FiltersProviderType) {
-  //en este contexto en concreto hemos creado un estado, que pasa a ser global
   const [filters, setFilters] = useState<Filters>({
     minPrice: 0,
     category: 'all',
   });
+  console.log(filters);
   return (
     <FiltersContext.Provider value={{ filters, setFilters }}>
       {children}
@@ -41,5 +45,4 @@ export function FiltersProvider({ children }: FiltersProviderType) {
 }
 
 //3. los elementos que lo necesiten se importarán el useContext y consumirán
-//este useContext, en esta web, en main.tsx, envolveremos el componente App,
-//luego envolvemos toda la aplicación
+//este useContext.
