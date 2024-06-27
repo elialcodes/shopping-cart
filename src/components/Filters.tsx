@@ -6,6 +6,8 @@ function Filters() {
   //de nuestro hook nos traemos los valores de filters y setFilters,
   //nada ha sido pasado por props, porque a través del hook, que tiene el context,
   //accedemos el estado global
+  //TAMBIÉN FUNCIONA SI DESDE ESTE COMPONENTE ACCEDEMOS DIRECTAMENTE AL
+  //USECONTEXT Y NO UTILIZAMOS EL CUSTOM HOOK
   const { filters, setFilters } = useFilters();
 
   //usamos useId para hacer únicos los ids de los inputs, no requiere de argumentos
