@@ -10,6 +10,7 @@ interface Product {
   category: string;
   thumbnail: string;
   images: string[];
+  quantity: number;
 }
 
 type AllProducts = Product[];

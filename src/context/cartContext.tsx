@@ -22,7 +22,9 @@ interface CartProviderType {
 
 //HACEMOS EL CONTEXT:
 //1. CREAMOS EL CONTEXTO a consumir, lo tipamos y su valor será undefined por defecto
-export const CartContext = createContext<CartContextType>();
+export const CartContext = createContext<CartContextType | undefined>(
+  undefined
+);
 
 //2. CREAMOS EL PROVIDER, metemos aquí todo lo que queramos que sirva el context
 //(un estado y las funciones addToCart, removeFromCart y clearCart) para
