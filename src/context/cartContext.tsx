@@ -11,6 +11,7 @@ interface CartContextType {
   cart: AllProducts;
   setCart: Dispatch<SetStateAction<AllProducts>>;
   addToCart: (product: Product) => void;
+  removeFromCart: (product: Product) => void;
   clearCart: () => void;
 }
 
@@ -23,14 +24,15 @@ interface CartProviderType {
 //1. CREAMOS EL CONTEXTO a consumir, lo tipamos y su valor será undefined por defecto
 export const CartContext = createContext<CartContextType>();
 
-//2. CREAMOS EL PROVIDER (el proveedor del context) para que lo usen
-//los componentes que lo necesiten:
+//2. CREAMOS EL PROVIDER, metemos aquí todo lo que queramos que sirva el context
+//(un estado y las funciones addToCart, removeFromCart y clearCart) para
+//que lo usen los componentes que lo necesiten.
 export function CartProvider({ children }: CartProviderType) {
   const [cart, setCart] = useState<AllProducts>([]);
 
   const addToCart = (product: Product) => {
     //buscamos si el objeto a añadir ya está en el carrito (buscamos si hay índice coindicente)
-    //y si no devuelve -1 es porque no está en el carrito
+    //si no lo hay, devolvería -1
     const productInCartIndex = cart.findIndex(item => item.id === product.id);
     if (productInCartIndex !== -1) {
       //structuredClone hace copias de array y objetos como spreed pero más profundas, es útil
@@ -43,16 +45,22 @@ export function CartProvider({ children }: CartProviderType) {
     //si no, devolvemos el estado anterior y al producto añadido le dejamos la cantidad 1
     setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
   };
-
+  //seteamos el estado con un array de productos cuyo id no coincide con el seleccionado
+  const removeFromCart = (product: Product) => {
+    setCart(prevState => prevState.filter(item => item.id !== product.id));
+  };
+  //función para limpiar el carrito
   const clearCart = () => {
     setCart([]);
   };
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart, clearCart }}>
+    <CartContext.Provider
+      value={{ cart, setCart, addToCart, removeFromCart, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );
 }
 
 //3. los elementos que lo necesiten se importarán el useContext y consumirán
-//este useContext.
+//lo que hay en este useContext.
