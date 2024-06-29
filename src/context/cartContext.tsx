@@ -33,11 +33,14 @@ export function CartProvider({ children }: CartProviderType) {
     const productInCartIndex = cart.findIndex(item => item.id === product.id);
 
     if (productInCartIndex !== -1) {
-      //structuredClone hace copias de array y objetos como spreed pero más profundas, es útil
-      //si el array que queremos clonar es pequeño
-      //como el producto estaría en el carrito, le añadimos una cantidad
+      //structuredClone hace copias de array y objetos como spreed pero más profundas,
+      //es útil si el array que queremos clonar es pequeño
       const newCart = structuredClone(cart);
-      newCart[productInCartIndex].quantity += 1;
+      //como el producto estaría en el carrito, le añadimos una cantidad
+      const item = newCart[productInCartIndex];
+      if (item.quantity !== undefined) {
+        item.quantity += 1;
+      }
       return setCart(newCart);
     }
     //si no hay coincidencias, devolvemos el estado anterior y en el producto
