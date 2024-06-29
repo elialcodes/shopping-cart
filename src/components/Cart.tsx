@@ -3,21 +3,6 @@ import { useCart } from '../hooks/useCart.tsx';
 import { useId } from 'react';
 import '../styles/Cart.css';
 
-// function cartItem(product, addToCart) {
-//   return (
-//     <li>
-//       <img src={product.thumbnail} alt={product.title} />
-//       <div>
-//         <strong>{product.title}</strong> - ${product.price}
-//       </div>
-//       <footer>
-//         <small>Qty: 1</small>
-//         <button onClick={addToCart}>+</button>
-//       </footer>
-//     </li>
-//   );
-// }
-
 function Cart(): JSX.Element {
   const cartCheckboxId = useId();
   const { cart, addToCart, clearCart } = useCart();
@@ -36,9 +21,9 @@ function Cart(): JSX.Element {
                 <strong>{product.title}</strong> - ${product.price}
               </div>
               <footer>
-                <small>Qty: 1</small>
+                <small>Qty: {product.quantity}</small>
                 {/* pasamos la función addToCart para sincronizar con el listado total */}
-                <button onClick={addToCart}>+</button>
+                <button onClick={() => addToCart(product)}>+</button>
               </footer>
             </li>
           ))}

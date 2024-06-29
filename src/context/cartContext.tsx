@@ -1,19 +1,13 @@
-import {
-  createContext,
-  useState,
-  ReactNode,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import { createContext, useState, ReactNode } from 'react';
 
 //definimos los tipos del contexto, cart es un array tipado con AllProducts
-interface CartContextType {
-  cart: AllProducts;
-  setCart: Dispatch<SetStateAction<AllProducts>>;
-  addToCart: (product: Product) => void;
-  removeFromCart: (product: Product) => void;
-  clearCart: () => void;
-}
+// interface CartContextType {
+//   cart: AllProducts;
+//   setCart: Dispatch<SetStateAction<AllProducts>>;
+//   addToCart: (product: Product) => void;
+//   removeFromCart: (product: Product) => void;
+//   clearCart: () => void;
+// }
 
 //definimos los tipos del provider
 interface CartProviderType {
@@ -37,9 +31,8 @@ export function CartProvider({ children }: CartProviderType) {
     //buscaremos si el objeto a añadir ya está en el carrito (buscamos si hay índice
     //coindicente) si no hay coincidencias, devolvería -1
     const productInCartIndex = cart.findIndex(item => item.id === product.id);
-    console.log(productInCartIndex);
+
     if (productInCartIndex !== -1) {
-      console.log(productInCartIndex);
       //structuredClone hace copias de array y objetos como spreed pero más profundas, es útil
       //si el array que queremos clonar es pequeño
       //como el producto estaría en el carrito, le añadimos una cantidad
