@@ -10,7 +10,7 @@ function ListProducts({ products }: LisProductsProps) {
   //importamos lo que nos iteresa del hook
   const { cart, addToCart, removeFromCart } = useCart();
 
-  //función que devuelve true o false para verificar si el artículo seleccionado por
+  //función que devolverá true o false para verificar si el artículo seleccionado por
   //el usuario está en el carrito de compras
   const checkProductInCart = (product: Product) => {
     return cart.some(item => item.id === product.id);
@@ -34,7 +34,8 @@ function ListProducts({ products }: LisProductsProps) {
                 className={isProductInCart ? 'inCart' : 'notInCar'}
                 onClick={() => {
                   {
-                    /*renderizado condicional para borrar o añadir del carro*/
+                    /*renderizado condicional para borrar o añadir del carro desde la lista
+                    de productos*/
                   }
                   isProductInCart
                     ? removeFromCart(product)

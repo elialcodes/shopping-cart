@@ -10,7 +10,7 @@ interface Product {
   category: string;
   thumbnail: string;
   images: string[];
-  quantity: number;
+  quantity?: 1;
 }
 
 type AllProducts = Product[];
@@ -30,4 +30,5 @@ interface CartContextType {
   setCart: Dispatch<SetStateAction<AllProducts>>;
   addToCart: (product: Product) => void;
   clearCart: () => void;
+  removeFromCart: (product: Product) => void;
 }

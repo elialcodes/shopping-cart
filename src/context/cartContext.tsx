@@ -33,24 +33,31 @@ export function CartProvider({ children }: CartProviderType) {
   const [cart, setCart] = useState<AllProducts>([]);
 
   const addToCart = (product: Product) => {
-    //buscamos si el objeto a añadir ya está en el carrito (buscamos si hay índice coindicente)
-    //si no lo hay, devolvería -1
+    //cuando añadamos un producto, bien desde la lista de productos bien desde el carrito,
+    //buscaremos si el objeto a añadir ya está en el carrito (buscamos si hay índice
+    //coindicente) si no hay coincidencias, devolvería -1
     const productInCartIndex = cart.findIndex(item => item.id === product.id);
+    console.log(productInCartIndex);
     if (productInCartIndex !== -1) {
+      console.log(productInCartIndex);
       //structuredClone hace copias de array y objetos como spreed pero más profundas, es útil
       //si el array que queremos clonar es pequeño
-      //como el producto no estaría en el carrito, le añadimos una cantidad
+      //como el producto estaría en el carrito, le añadimos una cantidad
       const newCart = structuredClone(cart);
       newCart[productInCartIndex].quantity += 1;
       return setCart(newCart);
     }
-    //si no, devolvemos el estado anterior y al producto añadido le dejamos la cantidad 1
+    //si no hay coincidencias, devolvemos el estado anterior y en el producto
+    //añadido dejamos cantidad 1
     setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
   };
-  //seteamos el estado con un array de productos cuyo id no coincide con el seleccionado
+
+  //seteamos el estado con un array de productos filtrados cuyo id no coincide con
+  //el seleccionado
   const removeFromCart = (product: Product) => {
     setCart(prevState => prevState.filter(item => item.id !== product.id));
   };
+
   //función para limpiar el carrito
   const clearCart = () => {
     setCart([]);
