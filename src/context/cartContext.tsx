@@ -1,14 +1,5 @@
 import { createContext, useState, ReactNode } from 'react';
 
-//definimos los tipos del contexto, cart es un array tipado con AllProducts
-// interface CartContextType {
-//   cart: AllProducts;
-//   setCart: Dispatch<SetStateAction<AllProducts>>;
-//   addToCart: (product: Product) => void;
-//   removeFromCart: (product: Product) => void;
-//   clearCart: () => void;
-// }
-
 //definimos los tipos del provider
 interface CartProviderType {
   children: ReactNode;

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { CartIcon, ClearCartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.tsx';
 import { useId } from 'react';
