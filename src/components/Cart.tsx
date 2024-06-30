@@ -1,12 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { CartIcon, ClearCartIcon } from './icons.tsx';
+import { CartIcon, ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.tsx';
 import { useId } from 'react';
 import '../styles/Cart.css';
 
 function Cart(): JSX.Element {
   const cartCheckboxId = useId();
-  const { cart, addToCart, decrementQuantityFromCart, clearCart } = useCart();
+  const {
+    cart,
+    addToCart,
+    decrementQuantityFromCart,
+    removeFromCart,
+    clearCart,
+  } = useCart();
 
   return (
     <>
@@ -31,7 +37,9 @@ function Cart(): JSX.Element {
                     -
                   </button>
                 )}
-                <ClearCartIcon />
+                <button onClick={() => removeFromCart(product)}>
+                  <RemoveFromCartIcon />
+                </button>
               </footer>
             </li>
           ))}

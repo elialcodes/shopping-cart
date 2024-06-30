@@ -54,7 +54,7 @@ export function CartProvider({ children }: CartProviderType) {
     }
   };
 
-  //función para borrar todo el carrito, seteamos el estado con un array de
+  //función para borrar el producto, seteamos el estado con un array de
   //productos filtrados cuyo id no coincide con el seleccionado
   const removeFromCart = (product: Product) => {
     setCart(prevState => prevState.filter(item => item.id !== product.id));
