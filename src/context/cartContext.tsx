@@ -46,7 +46,7 @@ export function CartProvider({ children }: CartProviderType) {
       //structuredClone hace copias de array y objetos como spreed pero más profundas,
       //es útil si el array que queremos clonar es pequeño
       const newCart = structuredClone(cart);
-      //como el producto está en el carrito, le podemos añadir una cantidad
+      //como el producto está en el carrito, si la cantidad es >1, le podemos quitar cantidad
       const item = newCart[productInCartIndex];
       if (item.quantity !== undefined && item.quantity > 1) {
         item.quantity -= 1;
