@@ -12,11 +12,12 @@ function App(): JSX.Element {
   //lo manipularemos y obtendremos un array filtrado que es el que se renderizará
   const [products] = useState<AllProducts>(initialProducts);
 
-  //llamamos a función que hace el filtado y que procede el hook useFilters
+  //llamamos a función del hook que hace el filtado:
   const { filterProducts } = useFilters();
 
   //metemos la función de filtrar en una constante para tener ahí
   //el array que devuelve la función al ejecutarse con products de argumento
+  //este array será el que rendericemos
   const filteredProducts = filterProducts(products);
 
   return (

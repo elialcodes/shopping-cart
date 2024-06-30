@@ -9,12 +9,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   //   <App />
   // </React.StrictMode>
 
-  //pero la envolvermos con un useContext (nos lo hemos importado arriba)
+  //pero la envolvemos con un useContext (nos lo hemos importado arriba)
   //para proveerla del estado global, asi toda la App tiene acceso a él
   //y no hay que pasarlo por props.
   //Podría darse el caso que sólo unos componentes determinados necesiten
   //acceso a ese context (y no toda la App) y también podría ser otra cosa
-  //distinta de una estado global, un dato, una función...
+  //distinta de un estado global, un dato, una función...
   <FiltersProvider>
     <App />
   </FiltersProvider>

@@ -5,7 +5,9 @@ import { useId } from 'react';
 import '../styles/Cart.css';
 
 function Cart(): JSX.Element {
-  const cartCheckboxId = useId();
+  const cartCheckboxId = useId(); //damos un id único al input del return
+
+  //importamos todo lo que necesitamos del hook
   const {
     cart,
     addToCart,
@@ -19,6 +21,8 @@ function Cart(): JSX.Element {
       <label className="cart-button" htmlFor={cartCheckboxId}>
         <CartIcon />
       </label>
+      {/* nos ayudamos de la etiqueta hermana input (que está oculto), para que, si está
+       checked se despliegue la otra etiqueta hermana, el aside (ver css del componente) */}
       <input type="checkbox" id={cartCheckboxId} hidden />
       <aside className="cart">
         <ul>

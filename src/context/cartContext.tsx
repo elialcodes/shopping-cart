@@ -6,6 +6,7 @@ interface CartProviderType {
 }
 
 //HACEMOS EL CONTEXT:
+
 //1. CREAMOS EL CONTEXTO a consumir, lo tipamos y su valor será undefined por defecto
 export const CartContext = createContext<CartContextType | undefined>(
   undefined
@@ -18,23 +19,24 @@ export function CartProvider({ children }: CartProviderType) {
   const [cart, setCart] = useState<AllProducts>([]);
 
   const addToCart = (product: Product) => {
-    //cuando añadamos un producto, bien desde la lista de productos bien desde el carrito,
-    //buscaremos si el objeto a añadir ya está en el carrito (buscamos si hay índice
-    //coindicente) si no hay coincidencias, devolvería -1
-    const productInCartIndex = cart.findIndex(item => item.id === product.id);
+    //cuando hagamos click en un producto, bien desde la lista de productos o bien desde el
+    //botón + del carrito, buscaremos si el objeto a añadir ya está en el carrito
+    //(buscamos si hay índice coindicente y si no hay coincidencias, devolvería -1)
+    const productInCartIndex = cart.findIndex(item => item.id === product.id); //devuelve el index
     if (productInCartIndex !== -1) {
       //structuredClone hace copias de array y objetos como spreed pero más profundas,
       //es útil si el array que queremos clonar es pequeño
       const newCart = structuredClone(cart);
+      const item = newCart[productInCartIndex]; //constante con el producto concreto
       //como el producto está en el carrito, le podemos añadir una cantidad
-      const item = newCart[productInCartIndex];
+      //quantity era una propiedad opcional, luego su tipo es number o undefined
       if (item.quantity !== undefined && item.quantity >= 1) {
         item.quantity += 1;
       }
       return setCart(newCart);
     } else {
       //si es -1, no hay coincidencias, asi que devolvemos el estado anterior
-      //añadiendo el producto nuevo y le dejamos con cantidad 1
+      //añadiendo el producto nuevo y le ponemos cantidad 1
       setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
     }
   };
@@ -54,8 +56,8 @@ export function CartProvider({ children }: CartProviderType) {
     }
   };
 
-  //función para borrar el producto, seteamos el estado con un array de
-  //productos filtrados cuyo id no coincide con el seleccionado
+  //función para borrar el producto, de la lista y del carrito, seteamos el estado con
+  //un array de productos filtrados cuyo id no coincide con el seleccionado
   const removeFromCart = (product: Product) => {
     setCart(prevState => prevState.filter(item => item.id !== product.id));
   };
@@ -64,6 +66,7 @@ export function CartProvider({ children }: CartProviderType) {
   const clearCart = () => {
     setCart([]);
   };
+
   return (
     <CartContext.Provider
       value={{

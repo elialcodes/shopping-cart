@@ -3,9 +3,8 @@ import { useFilters } from '../hooks/useFilters';
 import '../styles/Filters.css';
 
 function Filters() {
-  //de nuestro hook nos traemos los valores de filters y setFilters,
-  //nada ha sido pasado por props, porque a través del hook, que tiene el context,
-  //accedemos el estado global
+  //no pasamos nada por props, de nuestro hook nos traemos los valores de filters
+  //y setFilters, que se su vez los obtiene del context, asi accedemos al estado global
   //TAMBIÉN FUNCIONA SI DESDE ESTE COMPONENTE ACCEDEMOS DIRECTAMENTE AL
   //USECONTEXT Y NO UTILIZAMOS EL CUSTOM HOOK
   const { filters, setFilters } = useFilters();
@@ -15,24 +14,24 @@ function Filters() {
   const minPriceFilterId = useId();
   const categoryFilterId = useId();
 
-  //función para setear el valor del filtro minPrice
+  //función majedora para setear el valor del filtro minPrice
   const handleChangeMinPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
     //con spreed tomamos el valor de filters y sólo sobreescribimos la propiedad minPrice
-    setFilters(prevState => ({
-      ...prevState,
+    setFilters({
+      ...filters,
       minPrice: Number(event.target.value),
-    }));
+    });
   };
 
-  //función para setear el estado del filtro category
+  //función manejadora para setear el estado del filtro category
   const handleChangeCategory = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     //con spreed tomamos el valor de filters y sólo sobreescribimos la propiedad category
-    setFilters(prevState => ({
-      ...prevState,
+    setFilters({
+      ...filters,
       category: event.target.value,
-    }));
+    });
   };
 
   return (
