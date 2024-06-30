@@ -6,7 +6,8 @@ import '../styles/Cart.css';
 
 function Cart(): JSX.Element {
   const cartCheckboxId = useId();
-  const { cart, addToCart, clearCart } = useCart();
+  const { cart, addToCart, decrementQuantityFromCart, clearCart } = useCart();
+
   return (
     <>
       <label className="cart-button" htmlFor={cartCheckboxId}>
@@ -25,6 +26,11 @@ function Cart(): JSX.Element {
                 <small>Qty: {product.quantity}</small>
                 {/* pasamos la función addToCart para sincronizar con el listado total */}
                 <button onClick={() => addToCart(product)}>+</button>
+                {product.quantity !== undefined && product.quantity > 1 && (
+                  <button onClick={() => decrementQuantityFromCart(product)}>
+                    -
+                  </button>
+                )}
               </footer>
             </li>
           ))}

@@ -27,9 +27,9 @@ export function CartProvider({ children }: CartProviderType) {
       //structuredClone hace copias de array y objetos como spreed pero más profundas,
       //es útil si el array que queremos clonar es pequeño
       const newCart = structuredClone(cart);
-      //como el producto estaría en el carrito, le añadimos una cantidad
+      //como el producto está en el carrito, le podemos añadir una cantidad
       const item = newCart[productInCartIndex];
-      if (item.quantity !== undefined) {
+      if (item.quantity !== undefined && item.quantity === 1) {
         item.quantity += 1;
       }
       return setCart(newCart);
@@ -39,8 +39,27 @@ export function CartProvider({ children }: CartProviderType) {
     setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
   };
 
-  //seteamos el estado con un array de productos filtrados cuyo id no coincide con
-  //el seleccionado
+  //función para decrementar la cantidad en el carrito
+  const decrementQuantityFromCart = (product: Product) => {
+    const productInCartIndex = cart.findIndex(item => item.id === product.id);
+    if (productInCartIndex !== -1) {
+      //structuredClone hace copias de array y objetos como spreed pero más profundas,
+      //es útil si el array que queremos clonar es pequeño
+      const newCart = structuredClone(cart);
+      //como el producto está en el carrito, le podemos añadir una cantidad
+      const item = newCart[productInCartIndex];
+      if (item.quantity !== undefined && item.quantity > 1) {
+        item.quantity -= 1;
+      }
+      return setCart(newCart);
+    }
+    //si no hay coincidencias, devolvemos el estado anterior y en el producto
+    //añadido dejamos cantidad 1
+    setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
+  };
+
+  //función para borrar todo el carrito, seteamos el estado con un array de
+  //productos filtrados cuyo id no coincide con el seleccionado
   const removeFromCart = (product: Product) => {
     setCart(prevState => prevState.filter(item => item.id !== product.id));
   };
@@ -51,7 +70,14 @@ export function CartProvider({ children }: CartProviderType) {
   };
   return (
     <CartContext.Provider
-      value={{ cart, setCart, addToCart, removeFromCart, clearCart }}
+      value={{
+        cart,
+        setCart,
+        addToCart,
+        decrementQuantityFromCart,
+        removeFromCart,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>
