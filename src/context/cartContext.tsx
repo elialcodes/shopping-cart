@@ -42,16 +42,15 @@ export function CartProvider({ children }: CartProviderType) {
   //función para decrementar la cantidad en el carrito, parecida a la anterior
   const decrementQuantityFromCart = (product: Product) => {
     const productInCartIndex = cart.findIndex(item => item.id === product.id);
-    if (productInCartIndex !== -1) {
-      const newCart = structuredClone(cart);
-      //como el producto está en el carrito, si la cantidad es >1, le podemos quitar cantidad
-      const item = newCart[productInCartIndex];
-      if (item.quantity !== undefined && item.quantity > 1) {
-        item.quantity -= 1;
-      }
+    const newCart = structuredClone(cart);
+    const item = newCart[productInCartIndex];
+    if (
+      productInCartIndex !== -1 &&
+      item.quantity !== undefined &&
+      item.quantity > 1
+    ) {
+      item.quantity -= 1;
       return setCart(newCart);
-    } else {
-      setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
     }
   };
 

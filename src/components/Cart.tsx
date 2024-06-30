@@ -31,6 +31,7 @@ function Cart(): JSX.Element {
                     -
                   </button>
                 )}
+                <ClearCartIcon />
               </footer>
             </li>
           ))}
