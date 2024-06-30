@@ -23,41 +23,38 @@ export function CartProvider({ children }: CartProviderType) {
     //botón + del carrito, buscaremos si el objeto a añadir ya está en el carrito
     //(buscamos si hay índice coindicente y si no hay coincidencias, devolvería -1)
     const productInCartIndex = cart.findIndex(item => item.id === product.id); //devuelve el index
-    if (productInCartIndex !== -1) {
+
+    if (productInCartIndex === -1) {
+      //si es -1, no hay coincidencias, asi que devolvemos el estado anterior
+      //añadiendo el producto nuevo y le ponemos cantidad 1
+      setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
+    } else {
       //structuredClone hace copias de array y objetos como spreed pero más profundas,
       //es útil si el array que queremos clonar es pequeño
       const newCart = structuredClone(cart);
       const item = newCart[productInCartIndex]; //constante con el producto concreto
       //como el producto está en el carrito, le podemos añadir una cantidad
-      //quantity era una propiedad opcional, luego su tipo es number o undefined
+      //(recordamos que quantity era una propiedad opcional, luego su tipo es number o undefined)
       if (item.quantity !== undefined && item.quantity >= 1) {
         item.quantity += 1;
       }
       return setCart(newCart);
-    } else {
-      //si es -1, no hay coincidencias, asi que devolvemos el estado anterior
-      //añadiendo el producto nuevo y le ponemos cantidad 1
-      setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
     }
   };
 
   //función para decrementar la cantidad en el carrito, parecida a la anterior
   const decrementQuantityFromCart = (product: Product) => {
-    const productInCartIndex = cart.findIndex(item => item.id === product.id);
+    const productInCartIndex = cart.findIndex(item => item.id === product.id); //localizamos el index
     const newCart = structuredClone(cart);
-    const item = newCart[productInCartIndex];
-    if (
-      productInCartIndex !== -1 &&
-      item.quantity !== undefined &&
-      item.quantity > 1
-    ) {
+    const item = newCart[productInCartIndex]; //constante con el producto concreto
+    if (item.quantity !== undefined && item.quantity > 1) {
       item.quantity -= 1;
       return setCart(newCart);
     }
   };
 
-  //función para borrar el producto, de la lista y del carrito, seteamos el estado con
-  //un array de productos filtrados cuyo id no coincide con el seleccionado
+  //función para borrar el producto, de la lista y del carrito de forma sincronizada, seteamos
+  //el estado con un array de productos filtrados cuyo id no coincide con el seleccionado
   const removeFromCart = (product: Product) => {
     setCart(prevState => prevState.filter(item => item.id !== product.id));
   };
@@ -83,5 +80,5 @@ export function CartProvider({ children }: CartProviderType) {
   );
 }
 
-//3. los elementos que lo necesiten se importarán el useContext y consumirán
+//3. los elementos que lo necesiten (children) se importarán el useContext y consumirán
 //lo que hay en este useContext.

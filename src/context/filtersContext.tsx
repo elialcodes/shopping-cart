@@ -45,5 +45,5 @@ export function FiltersProvider({ children }: FiltersProviderType) {
   );
 }
 
-//3. los elementos que lo necesiten se importarán el useContext y consumirán
+//3. los elementos que lo necesiten (sus children) se importarán el useContext y consumirán
 //este useContext.
