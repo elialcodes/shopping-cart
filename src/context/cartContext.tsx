@@ -12,8 +12,8 @@ export const CartContext = createContext<CartContextType | undefined>(
 );
 
 //2. CREAMOS EL PROVIDER, metemos aquí todo lo que queramos que sirva el context
-//(un estado y las funciones addToCart, removeFromCart y clearCart) para
-//que lo usen los componentes que lo necesiten.
+//(un estado y las funciones addToCart, decrementQuantityFromCart, removeFromCart
+//y clearCart) para que lo usen los componentes que lo necesiten.
 export function CartProvider({ children }: CartProviderType) {
   const [cart, setCart] = useState<AllProducts>([]);
 
@@ -39,12 +39,10 @@ export function CartProvider({ children }: CartProviderType) {
     }
   };
 
-  //función para decrementar la cantidad en el carrito
+  //función para decrementar la cantidad en el carrito, parecida a la anterior
   const decrementQuantityFromCart = (product: Product) => {
     const productInCartIndex = cart.findIndex(item => item.id === product.id);
     if (productInCartIndex !== -1) {
-      //structuredClone hace copias de array y objetos como spreed pero más profundas,
-      //es útil si el array que queremos clonar es pequeño
       const newCart = structuredClone(cart);
       //como el producto está en el carrito, si la cantidad es >1, le podemos quitar cantidad
       const item = newCart[productInCartIndex];
@@ -53,8 +51,6 @@ export function CartProvider({ children }: CartProviderType) {
       }
       return setCart(newCart);
     } else {
-      //si es -1, no hay coincidencias, asi que devolvemos el estado anterior
-      //añadiendo el producto nuevo y le dejamos con cantidad 1
       setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
     }
   };
