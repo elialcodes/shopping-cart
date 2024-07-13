@@ -57,11 +57,9 @@ function Filters() {
           onChange={handleChangeCategory}
         >
           <option value="all">All</option>
-          <option value="home-decoration">Home Decoration</option>
-          <option value="laptops">Laptops</option>
-          <option value="smartphones">Smartphones</option>
-          <option value="fragrances">Fragances</option>
-          <option value="skincare">Skincare</option>
+          <option value="beauty">Beauty</option>
+          <option value="fragrances">Fragrances</option>
+          <option value="furniture">Furniture</option>
           <option value="groceries">Groceries</option>
         </select>
       </div>
