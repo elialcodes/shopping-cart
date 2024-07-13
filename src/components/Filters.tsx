@@ -42,7 +42,7 @@ function Filters() {
           type="range"
           id={minPriceFilterId}
           min="0"
-          max="2000"
+          max="150"
           value={filters.minPrice}
           onChange={handleChangeMinPrice}
         />
