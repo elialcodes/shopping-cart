@@ -6,8 +6,8 @@ import { FiltersContext } from '../context/filtersContext'; //importamos el cont
 
 export function useFilters() {
   //metemos aquí el useContext que hemos creado con el estado global de los filtros
-  //para conseguir los valores de los inputs de filters y la función que setea los filters
-  //con "as" forzamos el tipado
+  //para conseguir los valores de los inputs de filters y la función que setea
+  //los filters. Con "as" forzamos el tipado.
   const { filters, setFilters } = useContext(FiltersContext) as {
     filters: Filters;
     setFilters: (filters: Filters) => void;

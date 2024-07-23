@@ -50,7 +50,7 @@
   scale: 1.1;
 }
 
-/* el signo ~ es el selector hermano, se llama sibling,
+/* el signo ~ es el de selector hermano, se llama sibling,
  y con él llamamos a una etiquetas hermanas, en este caso,
  partimos de la clase .cart-button, si la etiqueta hermana input está checked, 
  a la etiqueta hermana .cart le damos ese estilo de height y display */

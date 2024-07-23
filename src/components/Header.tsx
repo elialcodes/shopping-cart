@@ -1,13 +1,9 @@
 import Filters from './Filters';
 
-// interface HeaderProps {
-//   onChangeFilters: (minPrice: number, category: string) => void;
-// }
-
 function Header(): JSX.Element {
   return (
     <header>
-      <h1>My Ecommerce</h1>
+      <h1>My eCommerce</h1>
       <Filters />
     </header>
   );

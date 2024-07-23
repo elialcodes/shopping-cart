@@ -1,16 +1,4 @@
-import {
-  createContext,
-  useState,
-  ReactNode,
-  Dispatch,
-  SetStateAction,
-} from 'react';
-
-//definimos los tipos del contexto
-interface FiltersContextType {
-  filters: Filters;
-  setFilters: Dispatch<SetStateAction<Filters>>;
-}
+import { createContext, useState, ReactNode } from 'react';
 
 //definimos los tipos de las propiedades del provider
 interface FiltersProviderType {
@@ -25,7 +13,7 @@ export const FiltersContext = createContext<FiltersContextType | undefined>(
 
 //2. CREAMOS EL PROVIDER (el proveedor del context) para que lo usen
 //los componentes que lo necesiten:
-//- creamos una función con el parámetro children
+//- creamos una función con el parámetro children como props
 //- metemos en ella el estado de filtros, y entonces estos valores pasarán a ser
 //  un estado global
 //- en el return tomamos el contexto creado, accedemos a su función .Provider,
@@ -45,5 +33,5 @@ export function FiltersProvider({ children }: FiltersProviderType) {
   );
 }
 
-//3. los elementos que lo necesiten (sus children) se importarán el useContext y consumirán
-//este useContext.
+//3. los elementos que lo necesiten (sus children) se importarán el useContext y
+//consumirán este useContext.

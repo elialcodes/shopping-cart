@@ -10,8 +10,8 @@ function ListProducts({ products }: LisProductsProps) {
   //importamos lo que nos iteresa del hook
   const { cart, addToCart, removeFromCart } = useCart();
 
-  //función que devolverá true o false para verificar si el artículo seleccionado por
-  //el usuario está en el carrito de compras
+  //función que devolverá true o false para verificar si el artículo seleccionado
+  //por el usuario está en el carrito de compras
   const checkProductInCart = (product: Product) => {
     return cart.some(item => item.id === product.id);
   };
@@ -21,9 +21,9 @@ function ListProducts({ products }: LisProductsProps) {
       <ul>
         {/* renderizamos los productos  */}
         {products.map(product => {
-          //aprovechamos el bucle con cada producto para hacer una constante true o false
-          //dependiendo de la función que comprueba si el producto está o no en el carrito
-          //según sea true o false, el prducto se renderizará de una manera u otra
+          //aprovechamos el bucle con cada producto para hacer una constante true o
+          //false ejecutando la función checkProductInCart, porque, si el
+          //producto está o no en el carrito se renderizará de una manera u otra
           const isProductInCart = checkProductInCart(product);
           return (
             <li key={product.id}>
@@ -35,8 +35,8 @@ function ListProducts({ products }: LisProductsProps) {
                 className={isProductInCart ? 'inCart' : 'notInCar'}
                 onClick={() => {
                   {
-                    /*renderizado condicional para borrar o añadir en el carro desde la lista
-                    de productos*/
+                    /*renderizado condicional para borrar o añadir en el carro
+                    desde la lista de productos*/
                   }
                   isProductInCart
                     ? removeFromCart(product)

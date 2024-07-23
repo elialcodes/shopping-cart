@@ -21,8 +21,9 @@ function Cart(): JSX.Element {
       <label className="cart-button" htmlFor={cartCheckboxId}>
         <CartIcon />
       </label>
-      {/* nos ayudamos de la etiqueta hermana input (que está oculto), para que, si está
-       checked se despliegue la otra etiqueta hermana, el aside (ver css del componente) */}
+      {/* nos ayudamos de la etiqueta hermana input (que está oculta), para que,
+      si está checked se despliegue la otra etiqueta hermana, el aside 
+      (ver css del componente) */}
       <input type="checkbox" id={cartCheckboxId} hidden />
       <aside className="cart">
         <ul>
@@ -34,7 +35,7 @@ function Cart(): JSX.Element {
               </div>
               <footer>
                 <small>Qty: {product.quantity}</small>
-                {/* pasamos la función addToCart para sincronizar con el listado total */}
+                {/* función addToCart para sincronizar con el listado total*/}
                 <button onClick={() => addToCart(product)}>+</button>
                 {product.quantity !== undefined && product.quantity > 1 && (
                   <button onClick={() => decrementQuantityFromCart(product)}>

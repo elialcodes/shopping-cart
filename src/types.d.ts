@@ -42,6 +42,7 @@ interface Product {
   meta: Meta;
   images: string[];
   thumbnail: string;
+  quantity?: number | undefined;
 }
 
 type AllProducts = Product[];
@@ -51,7 +52,8 @@ interface Filters {
   category: string;
 }
 
-interface FiltersContextProps {
+//tipamos los contextos para que todo su children tenga acceso a estos tipos
+interface FiltersContextType {
   filters: Filters;
   setFilters: Dispatch<SetStateAction<Filters>>;
 }

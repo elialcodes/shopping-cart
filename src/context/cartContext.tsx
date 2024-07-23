@@ -19,14 +19,14 @@ export function CartProvider({ children }: CartProviderType) {
   const [cart, setCart] = useState<AllProducts>([]);
 
   const addToCart = (product: Product) => {
-    //cuando hagamos click en un producto, bien desde la lista de productos o bien desde el
-    //botón + del carrito, buscaremos si el objeto a añadir ya está en el carrito
-    //(buscamos si hay índice coindicente y si no hay coincidencias, devolvería -1)
-    const productInCartIndex = cart.findIndex(item => item.id === product.id); //devuelve el index
+    //cuando hagamos click en un producto (desde la lista de productos o desde el
+    //botón + del carrito), buscaremos si el objeto a añadir ya está en el carrito:
+    //si no lo está lo añade y si ya está en el carrito añade una cantidad más
+    const productInCartIndex = cart.findIndex(item => item.id === product.id);
 
     if (productInCartIndex === -1) {
-      //si es -1, no hay coincidencias, asi que devolvemos el estado anterior
-      //añadiendo el producto nuevo y le ponemos cantidad 1
+      //si el índice es  -1, no hay coincidencias, asi que devolvemos el estado
+      //anterior añadiendo el producto nuevo y le ponemos cantidad 1
       setCart(prevState => [...prevState, { ...product, quantity: 1 }]);
     } else {
       //structuredClone hace copias de array y objetos como spreed pero más profundas,
@@ -34,7 +34,7 @@ export function CartProvider({ children }: CartProviderType) {
       const newCart = structuredClone(cart);
       const item = newCart[productInCartIndex]; //constante con el producto concreto
       //como el producto está en el carrito, le podemos añadir una cantidad
-      //(recordamos que quantity era una propiedad opcional, luego su tipo es number o undefined)
+      //(quantity es una propiedad opcional, luego su tipo es number o undefined)
       if (item.quantity !== undefined && item.quantity >= 1) {
         item.quantity += 1;
       }
@@ -44,7 +44,7 @@ export function CartProvider({ children }: CartProviderType) {
 
   //función para decrementar la cantidad en el carrito, parecida a la anterior
   const decrementQuantityFromCart = (product: Product) => {
-    const productInCartIndex = cart.findIndex(item => item.id === product.id); //localizamos el index
+    const productInCartIndex = cart.findIndex(item => item.id === product.id);
     const newCart = structuredClone(cart);
     const item = newCart[productInCartIndex]; //constante con el producto concreto
     if (item.quantity !== undefined && item.quantity > 1) {
@@ -53,8 +53,8 @@ export function CartProvider({ children }: CartProviderType) {
     }
   };
 
-  //función para borrar el producto, de la lista y del carrito de forma sincronizada, seteamos
-  //el estado con un array de productos filtrados cuyo id no coincide con el seleccionado
+  //función para borrar el producto, de la lista y del carrito de forma sincronizada,
+  //seteamos el estado con un array de productos filtrados cuyo id no coincide
   const removeFromCart = (product: Product) => {
     setCart(prevState => prevState.filter(item => item.id !== product.id));
   };
