@@ -25,7 +25,7 @@ HTML, CSS, Vite, TypeScript and React.
 
 Previously, you have to install Node.js.
 
-Clone the repository: https://github.com/elialcodes/movies-search.git
+Clone the repository: https://github.com/elialcodes/shopping-cart.git
 
 Install node_modules folder:
 
@@ -42,4 +42,4 @@ Start the project:
 
 ## Links 🔗
 
-https://movies-search-murex-seven.vercel.app/
+https://my-ecommerce-inky.vercel.app/
