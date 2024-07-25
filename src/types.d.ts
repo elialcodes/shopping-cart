@@ -1,3 +1,4 @@
+//tipamos lo que nos devuelve la api
 interface Dimensions {
   width: number;
   height: number;
@@ -46,6 +47,13 @@ interface Product {
 }
 
 type AllProducts = Product[];
+
+type ProductsResponse = {
+  products: AllProducts;
+  total: number;
+  skip: number;
+  limit: number;
+};
 
 interface Filters {
   minPrice: number;
