@@ -61,6 +61,8 @@ function Filters() {
           <option value="fragrances">Fragrances</option>
           <option value="furniture">Furniture</option>
           <option value="groceries">Groceries</option>
+          <option value="home-decoration">Home Accessories</option>
+          <option value="kitchen-accessories">Kitchen Accessories</option>
         </select>
       </div>
     </section>
