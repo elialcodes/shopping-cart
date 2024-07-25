@@ -64,6 +64,9 @@ export function CartProvider({ children }: CartProviderType) {
     setCart([]);
   };
 
+  //en el return envolvemos con del contexto y su método provider, los componentes que lo
+  //necesiten (será su children, el que sea) para que puedan acceder a el contexto
+  //(los componentes se importarán el useContext y consumirán lo que hay en este useContext)
   return (
     <CartContext.Provider
       value={{
@@ -79,6 +82,3 @@ export function CartProvider({ children }: CartProviderType) {
     </CartContext.Provider>
   );
 }
-
-//3. los elementos que lo necesiten (children) se importarán el useContext y consumirán
-//lo que hay en este useContext.
