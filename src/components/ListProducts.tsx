@@ -1,13 +1,27 @@
 import '../styles/ListProducts.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
+import useProduct from '../hooks/useProducts.ts'; //importamos el hook con el useQuery
 
 interface LisProductsProps {
   products: AllProducts;
 }
 
 function ListProducts({ products }: LisProductsProps) {
-  //importamos lo que nos iteresa del hook
+  //tomamos lo que nos interesa de useQuery
+  const { isLoading, isError, error } = useProduct();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError)
+    return (
+      <div>
+        {/* TS no nos asegura que Error tenga la instancia error son su propiedad 
+        message, así que lo verificamos y si es así, accedemos a message. */}
+        Error: {error instanceof Error ? error.message : 'Unknown error'}
+      </div>
+    );
+
+  //importamos lo que nos iteresa del hook useCart
   const { cart, addToCart, removeFromCart } = useCart();
 
   //función que devolverá true o false para verificar si el artículo seleccionado

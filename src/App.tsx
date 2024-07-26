@@ -6,22 +6,13 @@ import ListProducts from './components/ListProducts.tsx';
 import useProduct from './hooks/useProducts.ts';
 
 function App(): JSX.Element {
-  //llamamos a los productos que nos devuelve useQuery:
-  const { data, isLoading, isError, error } = useProduct();
+  //tomamos lo que nos interesa de useQuery
+  const { data } = useProduct();
 
   console.log(data);
-  //llamamos a función del hook que hace el filtado:
-  const { filterProducts } = useFilters();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError)
-    return (
-      <div>
-        {/* TS no nos asegura que Error tenga la instancia error son su propiedad 
-        message, así que lo verificamos y si es así, accedemos a message. */}
-        Error: {error instanceof Error ? error.message : 'Unknown error'}
-      </div>
-    );
+  //llamamos a función del hook que hace el filtado
+  const { filterProducts } = useFilters();
 
   //metemos la función de filtrar en una constante para tener ahí
   //el array que devuelve la función al ejecutarse con products de argumento
