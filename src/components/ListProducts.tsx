@@ -12,6 +12,9 @@ function ListProducts({ products }: LisProductsProps) {
   //tomamos lo que nos interesa de useQuery
   const { isLoading, isError, error } = useProduct();
 
+  //importamos lo que nos iteresa del hook useCart
+  const { cart, addToCart, removeFromCart } = useCart();
+
   if (isLoading) return <div>Loading...</div>;
   if (isError)
     return (
@@ -21,9 +24,6 @@ function ListProducts({ products }: LisProductsProps) {
         Error: {error instanceof Error ? error.message : 'Unknown error'}
       </div>
     );
-
-  //importamos lo que nos iteresa del hook useCart
-  const { cart, addToCart, removeFromCart } = useCart();
 
   //función que devolverá true o false para verificar si el artículo seleccionado
   //por el usuario está en el carrito de compras
@@ -42,7 +42,7 @@ function ListProducts({ products }: LisProductsProps) {
           const isProductInCart = checkProductInCart(product);
           return (
             <li key={product.id}>
-              <Link to={`/productDetail/:${product.id}`}>
+              <Link to={`/productDetail/${product.id}`}>
                 <img src={product.thumbnail} alt={product.title} />
               </Link>
               <div>

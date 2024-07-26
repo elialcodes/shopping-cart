@@ -5,6 +5,7 @@ import Cart from './components/Cart.tsx';
 import Header from './components/Header.tsx';
 import ListProducts from './components/ListProducts.tsx';
 import useProduct from './hooks/useProducts.ts';
+import DetailProduct from './components/DetailProduct.tsx';
 
 function App(): JSX.Element {
   //tomamos lo que nos interesa de useQuery
@@ -31,7 +32,10 @@ function App(): JSX.Element {
           path="/"
           element={<ListProducts products={filteredProducts} />}
         />
-        <Route path="/productDetail/:id" />
+        <Route
+          path="/productDetail/:id"
+          element={<DetailProduct products={filteredProducts} />}
+        />
       </Routes>
     </CartProvider>
   );
