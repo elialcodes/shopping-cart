@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/ListProducts.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
@@ -41,7 +42,9 @@ function ListProducts({ products }: LisProductsProps) {
           const isProductInCart = checkProductInCart(product);
           return (
             <li key={product.id}>
-              <img src={product.thumbnail} alt={product.title} />
+              <Link to={`/productDetail/:${product.id}`}>
+                <img src={product.thumbnail} alt={product.title} />
+              </Link>
               <div>
                 <strong>{product.title}</strong> - ${product.price}
               </div>

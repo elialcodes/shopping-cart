@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import { useFilters } from './hooks/useFilters.tsx';
 import { CartProvider } from './context/cartContext.tsx';
 import Cart from './components/Cart.tsx';
@@ -21,11 +22,17 @@ function App(): JSX.Element {
 
   return (
     // envolvemos con CartProvider para que su children tenga acceso a ese
-    //   context (CartContext), no necesitamos envolver la App, hay otro scope
+    // context (CartContext), no necesitamos envolver la App, hay otro scope
     <CartProvider>
       <Cart />
       <Header />
-      <ListProducts products={filteredProducts} />
+      <Routes>
+        <Route
+          path="/"
+          element={<ListProducts products={filteredProducts} />}
+        />
+        <Route path="/productDetail/:id" />
+      </Routes>
     </CartProvider>
   );
 }
