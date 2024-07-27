@@ -33,18 +33,32 @@ function Cart(): JSX.Element {
               <div>
                 <strong>{product.title}</strong> - ${product.price}
               </div>
-              <footer>
+              <div className="quantity">
                 <small>Qty: {product.quantity}</small>
                 {/* función addToCart para sincronizar con el listado total*/}
-                <button onClick={() => addToCart(product)}>+</button>
+                <button
+                  className="button-units"
+                  onClick={() => addToCart(product)}
+                >
+                  +
+                </button>
                 {product.quantity !== undefined && product.quantity > 1 && (
-                  <button onClick={() => decrementQuantityFromCart(product)}>
+                  <button
+                    className="button-units"
+                    onClick={() => decrementQuantityFromCart(product)}
+                  >
                     -
                   </button>
                 )}
-                <button onClick={() => removeFromCart(product)}>
+                <button
+                  className="button-remove"
+                  onClick={() => removeFromCart(product)}
+                >
                   <RemoveFromCartIcon />
                 </button>
+              </div>
+              <footer>
+                <button>See Product</button>
               </footer>
             </li>
           ))}

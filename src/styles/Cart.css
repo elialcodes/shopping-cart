@@ -2,31 +2,39 @@
   background: #000;
   display: none;
   padding: 32px;
-  position: fixed;
+  position: absolute;
   right: 0px;
   top: 0px;
   width: 200px;
 }
 
-.cart img {
-  aspect-ratio: 16/9;
-  width: 100%;
-}
-
 .cart li {
   border-bottom: 1px solid #444;
   padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.cart footer {
+.cart img {
+  /* aspect-ratio: 16/9; */
+  width: 80%;
+  margin: 0 auto;
+}
+
+.quantity {
   display: flex;
   gap: 8px;
   justify-content: center;
   align-items: center;
 }
 
-.cart footer button {
+.button-units {
   padding: 8px;
+}
+
+.button-remove {
+  padding: 4px;
 }
 
 .cart-button {
@@ -56,5 +64,7 @@
  a la etiqueta hermana .cart le damos ese estilo de height y display */
 .cart-button ~ input:checked ~ .cart {
   height: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
