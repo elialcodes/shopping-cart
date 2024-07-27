@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import '../styles/DetailProduct.css';
+import { AddToCartIcon, RemoveFromCartIcon } from './icons';
+import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
 
 interface DetailProductProps {
   products: AllProducts;
@@ -20,6 +22,17 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
   if (!productData) {
     return <div>Producto no encontrado</div>;
   }
+  //importamos lo que nos iteresa del hook useCart
+  const { cart, addToCart, removeFromCart } = useCart();
+
+  //función que devolverá true o false para verificar si el artículo seleccionado
+  //por el usuario está en el carrito de compras
+  const checkProductInCart = (product: Product) => {
+    return cart.some(item => item.id === product.id);
+  };
+
+  //metermos esa función en una variable que será true o false
+  const isProductInCart = checkProductInCart(productData);
 
   return (
     <main>
@@ -31,6 +44,21 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
         <div>{productData.brand}</div>
         <div>{productData.description}</div>
         <div>Rating: {productData.rating}</div>
+        <button
+          className={isProductInCart ? 'inCart' : 'notInCar'}
+          onClick={() => {
+            {
+              /*renderizado condicional para poder borrar o añadir al carro
+                desde la vista detalle de un producto*/
+            }
+            isProductInCart
+              ? removeFromCart(productData)
+              : addToCart(productData);
+          }}
+        >
+          {/* renderizado condicional para mostrar un icono u otro */}
+          {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
+        </button>
       </div>
     </main>
   );
