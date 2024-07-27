@@ -2,6 +2,7 @@
 import { CartIcon, ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.tsx';
 import { useId } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
 
 function Cart(): JSX.Element {
@@ -57,9 +58,11 @@ function Cart(): JSX.Element {
                   <RemoveFromCartIcon />
                 </button>
               </div>
-              <footer>
-                <button>See Product</button>
-              </footer>
+              <div>
+                <Link to={`/productDetail/${product.id}`}>
+                  <button>See Product</button>
+                </Link>
+              </div>
             </li>
           ))}
         </ul>

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import '../styles/DetailProduct.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
+import { Link } from 'react-router-dom';
 
 interface DetailProductProps {
   products: AllProducts;
@@ -36,29 +37,34 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
 
   return (
     <main>
+      <Link to="/">
+        <button className="button-back">Back</button>
+      </Link>
       <div className="product">
         <img src={productData.thumbnail} alt={productData.title} />
-        <div>
+        <h3>
           <strong>{productData.title}</strong> - ${productData.price}
-        </div>
-        <div>{productData.brand}</div>
-        <div>{productData.description}</div>
-        <div>Rating: {productData.rating}</div>
-        <button
-          className={isProductInCart ? 'inCart' : 'notInCar'}
-          onClick={() => {
-            {
-              /*renderizado condicional para poder borrar o añadir al carro
+        </h3>
+        <span>{productData.brand}</span>
+        <p>{productData.description}</p>
+        <div className="rating">
+          <span>Rating: {productData.rating}</span>
+          <button
+            className={isProductInCart ? 'inCart' : 'notInCar'}
+            onClick={() => {
+              {
+                /*renderizado condicional para poder borrar o añadir al carro
                 desde la vista detalle de un producto*/
-            }
-            isProductInCart
-              ? removeFromCart(productData)
-              : addToCart(productData);
-          }}
-        >
-          {/* renderizado condicional para mostrar un icono u otro */}
-          {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
-        </button>
+              }
+              isProductInCart
+                ? removeFromCart(productData)
+                : addToCart(productData);
+            }}
+          >
+            {/* renderizado condicional para mostrar un icono u otro */}
+            {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
+          </button>
+        </div>
       </div>
     </main>
   );
