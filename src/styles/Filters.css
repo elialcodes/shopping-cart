@@ -1,12 +1,25 @@
 .filters {
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 700;
 }
 
-.filters > div {
+.filters div {
   display: flex;
   gap: 1rem;
+}
+
+@media (max-width: 767px) {
+  .filters {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 20px;
+  }
+
+  .filters select {
+    font-size: 0.9rem;
+  }
 }

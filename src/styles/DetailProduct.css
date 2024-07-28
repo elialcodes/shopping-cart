@@ -26,7 +26,7 @@
 }
 
 .product h3 {
-  margin-top: 00.5rem;
+  margin-top: 0.5rem;
 }
 
 .product span {
@@ -51,4 +51,19 @@
 
 .notInCart {
   background-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .product {
+    width: 80%;
+  }
+
+  .product h3 {
+    font-size: 1rem;
+  }
+
+  .product span,
+  .product p {
+    font-size: 0.9rem;
+  }
 }

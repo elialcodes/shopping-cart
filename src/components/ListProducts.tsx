@@ -47,7 +47,9 @@ function ListProducts({ products }: LisProductsProps) {
               </Link>
               <div className="product-information">
                 <div>
-                  <strong>{product.title}</strong> - ${product.price}
+                  <span>
+                    <strong>{product.title}</strong> - ${product.price}
+                  </span>
                 </div>
 
                 <button
