@@ -20,6 +20,9 @@ function Cart(): JSX.Element {
     <>
       {/* renderizado condicional del aside, para mostrar o no el carrito */}
       <aside className={showedCart ? 'cart' : 'hidden'}>
+        {cart.length === 0 && (
+          <p className="empty-cart">There is no product yet</p>
+        )}
         <ul>
           {cart.map(product => (
             <li key={product.id}>

@@ -9,6 +9,9 @@ interface DetailProductProps {
 }
 
 function DetailProduct({ products }: DetailProductProps): JSX.Element {
+  //importamos lo que nos iteresa del hook useCart
+  const { cart, addToCart, removeFromCart } = useCart();
+
   const { id } = useParams<{ id: string }>();
 
   //convertir "id" a número sólo si está definido
@@ -23,8 +26,6 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
   if (!productData) {
     return <div>Producto no encontrado</div>;
   }
-  //importamos lo que nos iteresa del hook useCart
-  const { cart, addToCart, removeFromCart } = useCart();
 
   //función que devolverá true o false para verificar si el artículo seleccionado
   //por el usuario está en el carrito de compras

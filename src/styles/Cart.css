@@ -8,16 +8,12 @@
   height: auto;
   background: #000;
   padding: 32px;
-  padding-top: 3rem;
+  padding-top: 6rem;
   position: absolute;
   right: 0px;
   top: 0px;
   width: 200px;
   z-index: 10;
-}
-
-.cart ul {
-  padding-top: 3rem;
 }
 
 .cart li {
@@ -57,17 +53,24 @@
 @media (max-width: 767px) {
   .cart {
     width: 100%;
-    min-height: 100vh;
     background: #000;
-    padding: 0;
+    padding: 0 0 32px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
 
+  .empty-cart {
+    padding-top: 4rem;
+  }
+
+  .cart ul {
+    margin: 0;
+  }
+
   .cart li {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
   }
 }
