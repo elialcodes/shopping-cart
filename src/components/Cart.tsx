@@ -55,17 +55,24 @@ function Cart(): JSX.Element {
                   <RemoveFromCartIcon />
                 </button>
               </div>
-              <div className="button-see-product">
+              <div>
                 <Link to={`/detailProduct/${product.id}`}>
-                  <button onClick={() => displayCart()}>See Product</button>
+                  <button
+                    className="button-see-product"
+                    onClick={() => displayCart()}
+                  >
+                    See Product
+                  </button>
                 </Link>
               </div>
             </li>
           ))}
         </ul>
-        <button onClick={clearCart}>
-          <ClearCartIcon />
-        </button>
+        {cart.length !== 0 && (
+          <button id="clear-cart-button" onClick={clearCart}>
+            <ClearCartIcon />
+          </button>
+        )}
       </aside>
     </>
   );
