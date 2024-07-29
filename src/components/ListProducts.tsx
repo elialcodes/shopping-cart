@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Filters from './Filters';
 import '../styles/ListProducts.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
@@ -32,46 +33,51 @@ function ListProducts({ products }: LisProductsProps) {
   };
 
   return (
-    <main className="products">
-      <ul>
-        {/* renderizamos los productos  */}
-        {products.map(product => {
-          //aprovechamos el bucle con cada producto para hacer una constante true o
-          //false ejecutando la función checkProductInCart, porque, si el
-          //producto está o no en el carrito se renderizará de una manera u otra
-          const isProductInCart = checkProductInCart(product);
-          return (
-            <li key={product.id}>
-              <Link to={`/detailProduct/${product.id}`}>
-                <img src={product.thumbnail} alt={product.title} />
-              </Link>
+    <>
+      <section>
+        <Filters />
+      </section>
+      <main className="products">
+        <ul>
+          {/* renderizamos los productos  */}
+          {products.map(product => {
+            //aprovechamos el bucle con cada producto para hacer una constante true o
+            //false ejecutando la función checkProductInCart, porque, si el
+            //producto está o no en el carrito se renderizará de una manera u otra
+            const isProductInCart = checkProductInCart(product);
+            return (
+              <li key={product.id}>
+                <Link to={`/detailProduct/${product.id}`}>
+                  <img src={product.thumbnail} alt={product.title} />
+                </Link>
 
-              <div>
-                <span>
-                  <strong>{product.title}</strong> - ${product.price}
-                </span>
-              </div>
+                <div>
+                  <span>
+                    <strong>{product.title}</strong> - ${product.price}
+                  </span>
+                </div>
 
-              <button
-                className={isProductInCart ? 'inCart' : 'notInCar'}
-                onClick={() => {
-                  {
-                    /*renderizado condicional para borrar o añadir en el carro
+                <button
+                  className={isProductInCart ? 'inCart' : 'notInCar'}
+                  onClick={() => {
+                    {
+                      /*renderizado condicional para borrar o añadir en el carro
                     desde la lista de productos*/
-                  }
-                  isProductInCart
-                    ? removeFromCart(product)
-                    : addToCart(product);
-                }}
-              >
-                {/* renderizado condicional para mostrar un icono u otro */}
-                {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </main>
+                    }
+                    isProductInCart
+                      ? removeFromCart(product)
+                      : addToCart(product);
+                  }}
+                >
+                  {/* renderizado condicional para mostrar un icono u otro */}
+                  {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </main>
+    </>
   );
 }
 

@@ -39,7 +39,7 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
   return (
     <main>
       <Link to="/">
-        <button className="button-back">Back</button>
+        <button className="button-back">Back to list</button>
       </Link>
       <div className="product">
         <img src={productData.thumbnail} alt={productData.title} />

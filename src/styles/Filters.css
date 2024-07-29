@@ -12,6 +12,10 @@
   gap: 1rem;
 }
 
+.filters option {
+  color: white;
+}
+
 @media (max-width: 767px) {
   .filters {
     flex-direction: column;

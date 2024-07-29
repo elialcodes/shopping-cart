@@ -62,8 +62,12 @@
 }
 
 @media (max-width: 767px) {
+  .button-back {
+    margin-top: 0;
+  }
+
   .product {
-    width: 80%;
+    width: 90%;
   }
 
   .product h3 {

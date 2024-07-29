@@ -26,9 +26,9 @@ function App(): JSX.Element {
     // envolvemos con CartProvider para que su children tenga acceso a ese
     // context (CartContext), no necesitamos envolver la App, hay otro scope
     <CartProvider>
+      <Header />
       <CartButton />
       <Cart />
-      <Header />
       <Routes>
         <Route
           path="/"

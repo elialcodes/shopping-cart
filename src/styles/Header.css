@@ -1,0 +1,12 @@
+a {
+  text-align: center;
+  text-decoration: none;
+  color: rgb(243, 165, 178);
+}
+
+@media (max-width: 767px) {
+  h1 {
+    margin-top: 2.5rem;
+    text-decoration: none;
+  }
+}
