@@ -13,10 +13,11 @@ export const CartContext = createContext<CartContextType | undefined>(
 );
 
 //2. CREAMOS EL PROVIDER, metemos aquí todo lo que queramos que sirva el context
-//(un estado y las funciones addToCart, decrementQuantityFromCart, removeFromCart
+//(dos estados y las funciones addToCart, decrementQuantityFromCart, removeFromCart
 //y clearCart) para que lo usen los componentes que lo necesiten.
 export function CartProvider({ children }: CartProviderType) {
   const [cart, setCart] = useState<AllProducts>([]);
+  const [showedCart, setShowedCart] = useState<boolean>(false);
 
   const addToCart = (product: Product) => {
     //cuando hagamos click en un producto (desde la lista de productos o desde el
@@ -64,7 +65,14 @@ export function CartProvider({ children }: CartProviderType) {
     setCart([]);
   };
 
-  //en el return envolvemos con del contexto y su método provider, los componentes que lo
+  //función para abrir o esconder el carrito
+  const displayCart = () => {
+    if (showedCart) {
+      setShowedCart(false);
+    } else setShowedCart(true);
+  };
+
+  //en el return envolvemos con el contexto y su método provider, los componentes que lo
   //necesiten (será su children, el que sea) para que puedan acceder a el contexto
   //(los componentes se importarán el useContext y consumirán lo que hay en este useContext)
   return (
@@ -76,6 +84,8 @@ export function CartProvider({ children }: CartProviderType) {
         decrementQuantityFromCart,
         removeFromCart,
         clearCart,
+        showedCart,
+        displayCart,
       }}
     >
       {children}

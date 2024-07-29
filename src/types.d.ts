@@ -69,8 +69,10 @@ interface FiltersContextType {
 interface CartContextType {
   cart: AllProducts;
   setCart: Dispatch<SetStateAction<AllProducts>>;
+  showedCart: boolean;
   addToCart: (product: Product) => void;
   removeFromCart: (product: Product) => void;
   decrementQuantityFromCart: (product: Product) => void;
   clearCart: () => void;
+  displayCart: () => void;
 }

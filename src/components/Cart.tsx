@@ -1,32 +1,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { CartIcon, ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.tsx';
-import { useId } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
 
 function Cart(): JSX.Element {
-  const cartCheckboxId = useId(); //damos un id único al input del return
-
   //importamos todo lo que necesitamos del hook
   const {
     cart,
+    showedCart,
     addToCart,
     decrementQuantityFromCart,
     removeFromCart,
     clearCart,
+    displayCart,
   } = useCart();
 
   return (
     <>
-      <label className="cart-button" htmlFor={cartCheckboxId}>
+      <button className="cart-button" onClick={() => displayCart()}>
         <CartIcon />
-      </label>
-      {/* nos ayudamos de la etiqueta hermana input (que está oculta), para que,
-      si está checked se despliegue la otra etiqueta hermana, el aside 
-      (ver css del componente) */}
-      <input type="checkbox" id={cartCheckboxId} hidden />
-      <aside className="cart">
+      </button>
+      {/* renderizado condicional del aside, para mostrar o no el carrito */}
+      <aside className={showedCart ? 'cart' : 'hidden'}>
         <ul>
           {cart.map(product => (
             <li key={product.id}>

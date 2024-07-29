@@ -1,8 +1,14 @@
-.cart {
-  background: #000;
+.hidden {
   display: none;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background: #000;
   padding: 32px;
-  padding-top: 3 rem;
+  padding-top: 3rem;
   position: absolute;
   right: 0px;
   top: 0px;
@@ -63,16 +69,6 @@
 .cart-button:hover {
   scale: 1.1;
   border: 0.5px solid white;
-}
-
-/* el signo ~ es el de selector hermano, se llama sibling,
- y con él llamamos a una etiquetas hermanas, en este caso,
- partimos de la clase .cart-button, si la etiqueta hermana input está checked, 
- a la etiqueta hermana .cart le damos ese estilo de height y display */
-.cart-button ~ input:checked ~ .cart {
-  display: flex;
-  flex-direction: column;
-  height: auto;
 }
 
 @media (max-width: 767px) {
