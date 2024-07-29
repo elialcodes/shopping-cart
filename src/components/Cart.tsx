@@ -54,7 +54,7 @@ function Cart(): JSX.Element {
                   <RemoveFromCartIcon />
                 </button>
               </div>
-              <div>
+              <div className="button-see-product">
                 <Link to={`/productDetail/${product.id}`}>
                   <button>See Product</button>
                 </Link>
