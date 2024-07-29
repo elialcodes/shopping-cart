@@ -16,6 +16,10 @@
   z-index: 10;
 }
 
+.empty-cart {
+  padding-top: 2rem;
+}
+
 .cart li {
   border-bottom: 1px solid #444;
   padding-bottom: 16px;
@@ -61,12 +65,8 @@
     gap: 1rem;
   }
 
-  .empty-cart {
-    padding-top: 4rem;
-  }
-
   .cart ul {
-    margin: 0;
+    margin-top: 2rem;
   }
 
   .cart li {

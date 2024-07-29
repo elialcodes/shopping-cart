@@ -1,5 +1,5 @@
 .cart-button {
-  align-items: center;
+  justify-self: end;
   background: rgb(244, 94, 119);
   border-radius: 9999px;
   cursor: pointer;
@@ -8,8 +8,7 @@
   justify-content: center;
   padding: 4px;
   position: absolute;
-  right: 50px;
-  top: 50px;
+  right: 12rem;
   transition: all 0.3s ease;
   width: 32px;
   z-index: 100;
@@ -22,7 +21,6 @@
 
 @media (max-width: 767px) {
   .cart-button {
-    right: 30px;
-    top: 30px;
+    right: 2.5rem;
   }
 }

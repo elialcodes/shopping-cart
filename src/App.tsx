@@ -5,7 +5,7 @@ import Cart from './components/Cart.tsx';
 import Header from './components/Header.tsx';
 import ListProducts from './components/ListProducts.tsx';
 import DetailProduct from './components/DetailProduct.tsx';
-import CartButton from './components/CartButton.tsx';
+
 import useProduct from './hooks/useProducts.ts';
 
 function App(): JSX.Element {
@@ -27,7 +27,7 @@ function App(): JSX.Element {
     // context (CartContext), no necesitamos envolver la App, hay otro scope
     <CartProvider>
       <Header />
-      <CartButton />
+
       <Cart />
       <Routes>
         <Route

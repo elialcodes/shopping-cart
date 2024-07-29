@@ -1,14 +1,19 @@
-a {
+header {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header a {
   text-decoration: none;
   color: rgb(243, 165, 178);
-}
-h1 {
-  text-align: center;
+  width: auto;
 }
 
 @media (max-width: 767px) {
-  h1 {
+  header {
     margin-top: 0;
-    text-decoration: none;
+    justify-content: space-between;
   }
 }
