@@ -33,20 +33,18 @@
   background: #fff;
 }
 
-.product-information {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .products span {
   font-size: 1rem;
   opacity: 0.9;
 }
 
+.products button {
+  width: 4rem;
+  align-self: center;
+}
+
 .inCart {
-  background-color: red;
+  background-color: lightcoral;
 }
 
 .notInCart {

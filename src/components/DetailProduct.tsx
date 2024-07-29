@@ -50,6 +50,7 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
         <div className="rating">
           <span>Rating: {productData.rating}</span>
           <button
+            // renderizado condicional para añadir una clase u otra y estilar el botón
             className={isProductInCart ? 'inCart' : 'notInCar'}
             onClick={() => {
               {

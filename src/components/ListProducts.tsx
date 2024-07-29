@@ -45,29 +45,28 @@ function ListProducts({ products }: LisProductsProps) {
               <Link to={`/productDetail/${product.id}`}>
                 <img src={product.thumbnail} alt={product.title} />
               </Link>
-              <div className="product-information">
-                <div>
-                  <span>
-                    <strong>{product.title}</strong> - ${product.price}
-                  </span>
-                </div>
 
-                <button
-                  className={isProductInCart ? 'inCart' : 'notInCar'}
-                  onClick={() => {
-                    {
-                      /*renderizado condicional para borrar o añadir en el carro
-                    desde la lista de productos*/
-                    }
-                    isProductInCart
-                      ? removeFromCart(product)
-                      : addToCart(product);
-                  }}
-                >
-                  {/* renderizado condicional para mostrar un icono u otro */}
-                  {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
-                </button>
+              <div>
+                <span>
+                  <strong>{product.title}</strong> - ${product.price}
+                </span>
               </div>
+
+              <button
+                className={isProductInCart ? 'inCart' : 'notInCar'}
+                onClick={() => {
+                  {
+                    /*renderizado condicional para borrar o añadir en el carro
+                    desde la lista de productos*/
+                  }
+                  isProductInCart
+                    ? removeFromCart(product)
+                    : addToCart(product);
+                }}
+              >
+                {/* renderizado condicional para mostrar un icono u otro */}
+                {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
+              </button>
             </li>
           );
         })}

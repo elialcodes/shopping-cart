@@ -1,6 +1,7 @@
 .button-back {
   text-align: center;
   margin-top: 2rem;
+  background-color: #403d3d;
 }
 
 .product {
@@ -46,7 +47,7 @@
 }
 
 .inCart {
-  background-color: red;
+  background-color: lightcoral;
 }
 
 .notInCart {

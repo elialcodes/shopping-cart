@@ -30,7 +30,7 @@ body {
 a {
   text-align: center;
   text-decoration: none;
-  color: lightpink;
+  color: rgb(243, 165, 178);
 }
 
 button {
@@ -40,7 +40,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2a2828;
   cursor: pointer;
   transition: border-color 0.25s;
 }
