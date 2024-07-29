@@ -5,7 +5,7 @@ function Header(): JSX.Element {
   return (
     <header>
       <Link to="/">
-        <h1>Let´s go shopping !</h1>
+        <h1>My Shop</h1>
       </Link>
     </header>
   );

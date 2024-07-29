@@ -1,12 +1,14 @@
 a {
-  text-align: center;
   text-decoration: none;
   color: rgb(243, 165, 178);
+}
+h1 {
+  text-align: center;
 }
 
 @media (max-width: 767px) {
   h1 {
-    margin-top: 2.5rem;
+    margin-top: 0;
     text-decoration: none;
   }
 }
