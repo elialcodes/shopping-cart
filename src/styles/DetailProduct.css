@@ -54,12 +54,12 @@
   background-color: transparent;
 }
 
-@media (max-width: 767px) {
-  .button-back {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.6rem;
-  }
+.button-back {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.6rem;
+}
 
+@media (max-width: 767px) {
   .product {
     width: 80%;
   }
