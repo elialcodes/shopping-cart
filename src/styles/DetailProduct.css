@@ -55,6 +55,11 @@
 }
 
 @media (max-width: 767px) {
+  .button-back {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+
   .product {
     width: 80%;
   }

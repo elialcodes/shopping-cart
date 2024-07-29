@@ -55,7 +55,7 @@ function Cart(): JSX.Element {
                 </button>
               </div>
               <div className="button-see-product">
-                <Link to={`/productDetail/${product.id}`}>
+                <Link to={`/detailProduct/${product.id}`}>
                   <button>See Product</button>
                 </Link>
               </div>

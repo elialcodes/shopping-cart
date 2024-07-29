@@ -42,7 +42,7 @@ function ListProducts({ products }: LisProductsProps) {
           const isProductInCart = checkProductInCart(product);
           return (
             <li key={product.id}>
-              <Link to={`/productDetail/${product.id}`}>
+              <Link to={`/detailProduct/${product.id}`}>
                 <img src={product.thumbnail} alt={product.title} />
               </Link>
 

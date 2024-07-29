@@ -33,7 +33,7 @@ function App(): JSX.Element {
           element={<ListProducts products={filteredProducts} />}
         />
         <Route
-          path="/productDetail/:id"
+          path="/detailProduct/:id"
           element={<DetailProduct products={filteredProducts} />}
         />
       </Routes>
