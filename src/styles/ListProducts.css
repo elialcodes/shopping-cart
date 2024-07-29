@@ -39,8 +39,8 @@
 }
 
 .products button {
-  width: 4rem;
   align-self: center;
+  padding: 0.2rem 0.4rem;
 }
 
 .inCart {

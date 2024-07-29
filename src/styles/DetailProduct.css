@@ -2,6 +2,8 @@
   text-align: center;
   margin-top: 2rem;
   background-color: #403d3d;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.6rem;
 }
 
 .product {
@@ -21,13 +23,13 @@
 .product img {
   border-radius: 10px;
   width: 100%;
-  aspect-ratio: 16/9;
+  /* aspect-ratio: 16/9; */
   object-fit: cover;
   background: #fff;
 }
 
 .product h3 {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .product span {
@@ -46,17 +48,17 @@
   align-items: center;
 }
 
+.product button {
+  align-self: center;
+  padding: 0.3rem 0.5rem;
+}
+
 .inCart {
   background-color: lightcoral;
 }
 
 .notInCart {
   background-color: transparent;
-}
-
-.button-back {
-  font-size: 0.9rem;
-  padding: 0.4rem 0.6rem;
 }
 
 @media (max-width: 767px) {
