@@ -79,12 +79,12 @@ export function CartProvider({ children }: CartProviderType) {
     <CartContext.Provider
       value={{
         cart,
+        showedCart,
         setCart,
         addToCart,
         decrementQuantityFromCart,
         removeFromCart,
         clearCart,
-        showedCart,
         displayCart,
       }}
     >

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { CartIcon, ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
+import { ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.tsx';
 import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
@@ -9,18 +9,15 @@ function Cart(): JSX.Element {
   const {
     cart,
     showedCart,
+    displayCart,
     addToCart,
     decrementQuantityFromCart,
     removeFromCart,
     clearCart,
-    displayCart,
   } = useCart();
 
   return (
     <>
-      <button className="cart-button" onClick={() => displayCart()}>
-        <CartIcon />
-      </button>
       {/* renderizado condicional del aside, para mostrar o no el carrito */}
       <aside className={showedCart ? 'cart' : 'hidden'}>
         <ul>
@@ -56,7 +53,7 @@ function Cart(): JSX.Element {
               </div>
               <div className="button-see-product">
                 <Link to={`/detailProduct/${product.id}`}>
-                  <button>See Product</button>
+                  <button onClick={() => displayCart()}>See Product</button>
                 </Link>
               </div>
             </li>
