@@ -12,7 +12,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 200px;
+  width: 13rem;
   z-index: 10;
 }
 
@@ -79,11 +79,6 @@
 
   .cart li {
     width: 60%;
-    margin: 0 auto;
-  }
-
-  .clear-cart-button {
-    width: 7rem;
     margin: 0 auto;
   }
 }

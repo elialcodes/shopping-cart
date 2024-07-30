@@ -69,7 +69,7 @@ function Cart(): JSX.Element {
           ))}
         </ul>
         {cart.length !== 0 && (
-          <button id="clear-cart-button" onClick={clearCart}>
+          <button className="clear-cart-button" onClick={clearCart}>
             <ClearCartIcon />
           </button>
         )}

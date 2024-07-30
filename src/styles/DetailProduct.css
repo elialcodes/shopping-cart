@@ -23,7 +23,6 @@
 .product img {
   border-radius: 10px;
   width: 100%;
-  /* aspect-ratio: 16/9; */
   object-fit: cover;
   background: #fff;
 }
