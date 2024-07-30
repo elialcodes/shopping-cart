@@ -6,6 +6,11 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: #f0f0f0;
+  transition: 0.5s ease;
+}
+
+.image-container:hover {
+  box-shadow: 0px 0px 15px whitesmoke;
 }
 
 .placeholder,

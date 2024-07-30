@@ -55,7 +55,6 @@ function ListProducts({ products }: LisProductsProps) {
                     placeholder="http://via.placeholder.com/"
                   />
                 </Link>
-
                 <div>
                   <span>
                     <strong>{product.title}</strong> - ${product.price}
