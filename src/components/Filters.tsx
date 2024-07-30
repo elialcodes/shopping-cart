@@ -41,6 +41,7 @@ function Filters({ maxPrice }: FiltersProp) {
     <section className="filters">
       <div>
         <label htmlFor={minPriceFilterId}>Price</label>
+        {/* <span>$ {filters.minPrice}</span> */}
         <input
           type="range"
           id={minPriceFilterId}

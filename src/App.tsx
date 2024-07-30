@@ -19,7 +19,7 @@ function App(): JSX.Element {
   //metemos la función de filtrar en una constante para tener ahí
   //el array que devuelve la función al ejecutarse con products de argumento
   //este array será el que rendericemos
-  const filteredProducts = filterProducts(data?.products || []);
+  const filteredProducts = filterProducts(data || []);
 
   const maxValueInputRange = higherPrice(filteredProducts);
 
