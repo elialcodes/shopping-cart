@@ -62,11 +62,12 @@ function Filters({ maxPrice }: FiltersProp) {
         >
           <option value="all">All</option>
           <option value="beauty">Beauty</option>
+          <option value="skin-care">Skin care</option>
           <option value="fragrances">Fragrances</option>
-          <option value="furniture">Furniture</option>
           <option value="groceries">Groceries</option>
-          <option value="home-decoration">Home Accessories</option>
-          <option value="kitchen-accessories">Kitchen Accessories</option>
+          <option value="kitchen-accessories">Kitchen accessories</option>
+          <option value="home-decoration">Home decoration</option>
+          <option value="mobile-accessories">Mobile accessories</option>
         </select>
       </div>
     </section>

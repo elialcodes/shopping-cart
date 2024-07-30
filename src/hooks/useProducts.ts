@@ -15,15 +15,12 @@ const useProduct = () => {
     data?.products?.filter(product =>
       [
         'beauty',
-        'fragrances',
         'skin-care',
+        'fragrances',
+        'groceries',
+        'kitchen-accessories',
         'home-decoration',
-        'sunglasses',
-        'tops',
-        'womens-bags',
-        'womens-dresses',
-        'womens-jewellery',
-        'womens-shoes',
+        'mobile-accessories',
       ].includes(product.category)
     ) || [];
 
