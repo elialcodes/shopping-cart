@@ -4,6 +4,7 @@ import '../styles/ListProducts.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
 import useProduct from '../hooks/useProducts.ts'; //importamos el hook con el useQuery
+import LazyImage from './LazyImage.tsx';
 
 interface LisProductsProps {
   products: AllProducts;
@@ -48,7 +49,11 @@ function ListProducts({ products }: LisProductsProps) {
             return (
               <li key={product.id}>
                 <Link to={`/detailProduct/${product.id}`}>
-                  <img src={product.thumbnail} alt={product.title} />
+                  <LazyImage
+                    src={product.thumbnail}
+                    alt={product.title}
+                    placeholder="http://via.placeholder.com/"
+                  />
                 </Link>
 
                 <div>

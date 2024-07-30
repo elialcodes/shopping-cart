@@ -20,9 +20,13 @@
   margin: 3rem 0 0 0;
 }
 
+.cart ul {
+  margin-top: 3rem;
+}
+
 .cart li {
   border-bottom: 1px solid #444;
-  padding-bottom: 16px;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -32,6 +36,8 @@
 .cart img {
   width: 80%;
   margin: 0 auto;
+  border-radius: 4px;
+  background: #fff;
 }
 
 .quantity {
@@ -74,7 +80,7 @@
   }
 
   .cart ul {
-    margin-top: 2rem;
+    margin-top: 5rem;
   }
 
   .cart li {
