@@ -2,6 +2,7 @@
 import { ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.tsx';
 import { Link } from 'react-router-dom';
+import LazyImage from './LazyImage.tsx';
 import '../styles/Cart.css';
 
 function Cart(): JSX.Element {
@@ -26,7 +27,12 @@ function Cart(): JSX.Element {
         <ul>
           {cart.map(product => (
             <li key={product.id}>
-              <img src={product.thumbnail} alt={product.title} />
+              <LazyImage
+                src={product.thumbnail}
+                alt={product.title}
+                placeholder="http://via.placeholder.com/"
+              />
+              {/* <img src={product.thumbnail} alt={product.title} /> */}
               <div>
                 <strong>{product.title}</strong> - ${product.price}
               </div>

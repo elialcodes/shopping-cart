@@ -21,12 +21,12 @@
 }
 
 .cart ul {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .cart li {
   border-bottom: 1px solid #444;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -34,7 +34,7 @@
 }
 
 .cart img {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   border-radius: 4px;
   background: #fff;
@@ -56,7 +56,7 @@
 }
 
 .button-see-product {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-size: 0.9rem;
   background-color: transparent;
   border: 1px solid #635f5f;
@@ -80,11 +80,12 @@
   }
 
   .cart ul {
-    margin-top: 5rem;
+    margin-top: 6rem;
+    width: 50%;
   }
 
   .cart li {
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
   }
 }

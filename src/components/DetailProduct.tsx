@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import '../styles/DetailProduct.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
+import LazyImage from './LazyImage.tsx';
 import { Link } from 'react-router-dom';
 
 interface DetailProductProps {
@@ -42,7 +43,11 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
         <button className="button-back">Back to list</button>
       </Link>
       <div className="product">
-        <img src={productData.thumbnail} alt={productData.title} />
+        <LazyImage
+          src={productData.thumbnail}
+          alt={productData.title}
+          placeholder="http://via.placeholder.com/"
+        />
         <h3>
           <strong>{productData.title}</strong> - ${productData.price}
         </h3>

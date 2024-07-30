@@ -5,18 +5,12 @@ interface LazyImageProps {
   src: string;
   alt: string;
   placeholder: string;
-  className?: string;
 }
 
-function LazyImage({
-  src,
-  alt,
-  placeholder,
-  className,
-}: LazyImageProps): JSX.Element {
+function LazyImage({ src, alt, placeholder }: LazyImageProps): JSX.Element {
   const [loaded, setLoaded] = useState<boolean>(false);
   return (
-    <div className={`image-container ${className}`}>
+    <div className="image-container">
       <img
         src={placeholder}
         alt="loading..."
