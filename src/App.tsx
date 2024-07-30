@@ -11,7 +11,7 @@ function App(): JSX.Element {
   //tomamos lo que nos interesa de useQuery
   const { data } = useProduct();
 
-  console.log(data);
+  // console.log(data);
 
   //llamamos a función del hook que hace el filtado
   const { filterProducts, higherPrice } = useFilters();
