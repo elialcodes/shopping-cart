@@ -24,7 +24,15 @@ export function useFilters() {
     });
   };
 
+  //función para extraer el precio más alto del array de productos filtrados y poner
+  //ese valor como límite del input range
+  const higherPrice = (items: Product[]): number => {
+    return items.reduce((max, item) => {
+      return item.price > max ? item.price : max;
+    }, 0);
+  };
+
   //extraemos los filtros, la función que setea el valor de los filtros
   //y la función de filtrar para que se pueda usar en otros componentes
-  return { filters, setFilters, filterProducts };
+  return { filters, setFilters, filterProducts, higherPrice };
 }

@@ -2,9 +2,12 @@ import { useId } from 'react';
 import { useFilters } from '../hooks/useFilters';
 import '../styles/Filters.css';
 
-function Filters() {
+type FiltersProp = {
+  maxPrice: number;
+};
+function Filters({ maxPrice }: FiltersProp) {
   //no pasamos nada por props, de nuestro hook nos traemos los valores de filters
-  //y setFilters, que se su vez los obtiene del context, asi accedemos al estado global
+  //y setFilters, que a su vez los obtiene del context, asi accedemos al estado global
   //TAMBIÉN FUNCIONA SI DESDE ESTE COMPONENTE ACCEDEMOS DIRECTAMENTE AL
   //USECONTEXT Y NO UTILIZAMOS EL CUSTOM HOOK
   const { filters, setFilters } = useFilters();
@@ -42,7 +45,7 @@ function Filters() {
           type="range"
           id={minPriceFilterId}
           min="0"
-          max="150"
+          max={maxPrice}
           value={filters.minPrice}
           onChange={handleChangeMinPrice}
         />

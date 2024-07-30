@@ -1,5 +1,5 @@
 import { CartIcon } from './icons.tsx';
-import { useCart } from '../hooks/useCart.tsx';
+import { useCart } from '../hooks/useCart.ts';
 import '../styles/CartButton.css';
 
 function CartButton(): JSX.Element {

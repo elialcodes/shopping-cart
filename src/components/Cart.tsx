@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
-import { useCart } from '../hooks/useCart.tsx';
+import { useCart } from '../hooks/useCart.ts';
 import { Link } from 'react-router-dom';
 import LazyImage from './LazyImage.tsx';
 import '../styles/Cart.css';

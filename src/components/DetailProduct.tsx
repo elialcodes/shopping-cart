@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import '../styles/DetailProduct.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
-import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
+import { useCart } from '../hooks/useCart.ts'; //importamos el hook
 import LazyImage from './LazyImage.tsx';
 import { Link } from 'react-router-dom';
 

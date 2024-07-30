@@ -2,15 +2,16 @@ import { Link } from 'react-router-dom';
 import Filters from './Filters';
 import '../styles/ListProducts.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
-import { useCart } from '../hooks/useCart.tsx'; //importamos el hook
+import { useCart } from '../hooks/useCart.ts'; //importamos el hook
 import useProduct from '../hooks/useProducts.ts'; //importamos el hook con el useQuery
 import LazyImage from './LazyImage.tsx';
 
 interface LisProductsProps {
   products: AllProducts;
+  maxPrice: number;
 }
 
-function ListProducts({ products }: LisProductsProps) {
+function ListProducts({ products, maxPrice }: LisProductsProps) {
   //tomamos lo que nos interesa de useQuery
   const { isLoading, isError, error } = useProduct();
 
@@ -36,7 +37,7 @@ function ListProducts({ products }: LisProductsProps) {
   return (
     <>
       <section>
-        <Filters />
+        <Filters maxPrice={maxPrice} />
       </section>
       <main className="products">
         <ul>
