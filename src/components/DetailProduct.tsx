@@ -3,6 +3,9 @@ import '../styles/DetailProduct.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.ts'; //importamos el hook
 import LazyImage from './LazyImage.tsx';
+import { Rating } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import { Link } from 'react-router-dom';
 
 interface DetailProductProps {
@@ -51,27 +54,48 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
         <h3>
           <strong>{productData.title}</strong> - ${productData.price}
         </h3>
-        <span>{productData.brand}</span>
+        <span className="span-brand">{productData.brand}</span>
         <p>{productData.description}</p>
         <div className="rating">
-          <span>Rating: {productData.rating}</span>
-          <button
-            // renderizado condicional para añadir una clase u otra y estilar el botón
-            className={isProductInCart ? 'inCart' : 'notInCar'}
-            onClick={() => {
-              {
-                /*renderizado condicional para poder borrar o añadir al carro
-                desde la vista detalle de un producto*/
-              }
-              isProductInCart
-                ? removeFromCart(productData)
-                : addToCart(productData);
+          <span className="span-rating">Rating: {productData.rating}</span>
+          {/* componente importado de una librería y personalizado con corazones  */}
+          <Rating
+            name="customized-color"
+            value={productData.rating}
+            max={5}
+            getLabelText={(value: number) =>
+              `${value} Heart${value !== 1 ? 's' : ''}`
+            }
+            precision={0.5}
+            icon={<FavoriteIcon fontSize="inherit" />}
+            emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
+            sx={{
+              '& .MuiRating-iconFilled': {
+                color: 'red',
+              },
+              '& .MuiRating-iconEmpty': {
+                color: 'grey',
+              },
             }}
-          >
-            {/* renderizado condicional para mostrar un icono u otro */}
-            {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
-          </button>
+            readOnly
+          />
         </div>
+        <button
+          // renderizado condicional para añadir una clase u otra y estilar el botón
+          className={isProductInCart ? 'inCart' : 'notInCar'}
+          onClick={() => {
+            {
+              /*renderizado condicional para poder borrar o añadir al carro
+                desde la vista detalle de un producto*/
+            }
+            isProductInCart
+              ? removeFromCart(productData)
+              : addToCart(productData);
+          }}
+        >
+          {/* renderizado condicional para mostrar un icono u otro */}
+          {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
+        </button>
       </div>
     </main>
   );

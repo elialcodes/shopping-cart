@@ -31,7 +31,8 @@
   margin-top: 1rem;
 }
 
-.product span {
+.span-brand,
+.span-rating {
   font-size: 1rem;
   margin-right: 1rem;
   opacity: 0.9;
@@ -48,6 +49,7 @@
 }
 
 .product button {
+  margin-top: 1rem;
   align-self: center;
   padding: 0.3rem 0.5rem;
 }
