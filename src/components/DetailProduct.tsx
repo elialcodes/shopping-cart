@@ -46,56 +46,74 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
         <button className="button-back">Back</button>
       </Link> */}
       <div className="product">
-        <LazyImage
-          src={productData.thumbnail}
-          alt={productData.title}
-          placeholder="http://via.placeholder.com/"
-        />
-        <h3>
-          <strong>{productData.title}</strong> - ${productData.price}
-        </h3>
-        <span className="span-brand">{productData.brand}</span>
-        <p>{productData.description}</p>
-        <div className="rating">
-          <span className="span-rating">Rating: {productData.rating}</span>
-          {/* componente importado de una librería y personalizado con corazones  */}
-          <Rating
-            name="customized-color"
-            value={productData.rating}
-            max={5}
-            getLabelText={(value: number) =>
-              `${value} Heart${value !== 1 ? 's' : ''}`
-            }
-            precision={0.5}
-            icon={<FavoriteIcon fontSize="inherit" />}
-            emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
-            sx={{
-              '& .MuiRating-iconFilled': {
-                color: 'red',
-              },
-              '& .MuiRating-iconEmpty': {
-                color: 'grey',
-              },
-            }}
-            readOnly
+        <div className="product-container-1">
+          <LazyImage
+            src={productData.thumbnail}
+            alt={productData.title}
+            placeholder="http://via.placeholder.com/"
           />
+          <h3>
+            <strong>{productData.title}- </strong> ${productData.price}
+          </h3>
+          <span className="span-brand">{productData.brand}</span>
         </div>
-        <button
-          // renderizado condicional para añadir una clase u otra y estilar el botón
-          className={isProductInCart ? 'inCart' : 'notInCar'}
-          onClick={() => {
-            {
-              /*renderizado condicional para poder borrar o añadir al carro
+        <div className="product-container-2">
+          <p>{productData.description}</p>
+          <div className="rating">
+            <span className="span-rating">Rating: {productData.rating}</span>
+            {/* componente importado de una librería y personalizado con corazones  */}
+            <Rating
+              name="customized-color"
+              value={productData.rating}
+              max={5}
+              getLabelText={(value: number) =>
+                `${value} Heart${value !== 1 ? 's' : ''}`
+              }
+              precision={0.5}
+              icon={<FavoriteIcon fontSize="inherit" />}
+              emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
+              sx={{
+                '& .MuiRating-iconFilled': {
+                  color: 'red',
+                },
+                '& .MuiRating-iconEmpty': {
+                  color: 'grey',
+                },
+              }}
+              readOnly
+            />
+          </div>
+          <div className="reviews">
+            <button className="reviews-button">Reviews</button>
+            {/* <ul className="reviews-comment">
+              {productData.reviews.map((review, index) => {
+                return (
+                  <li key={productData.id}>
+                    <p>
+                      Customer {index + 1}: {review.comment}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul> */}
+          </div>
+          <button
+            // renderizado condicional para añadir una clase u otra y estilar el botón
+            className={`button-cart ${isProductInCart ? 'inCart' : 'notInCar'}`}
+            onClick={() => {
+              {
+                /*renderizado condicional para poder borrar o añadir al carro
                 desde la vista detalle de un producto*/
-            }
-            isProductInCart
-              ? removeFromCart(productData)
-              : addToCart(productData);
-          }}
-        >
-          {/* renderizado condicional para mostrar un icono u otro */}
-          {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
-        </button>
+              }
+              isProductInCart
+                ? removeFromCart(productData)
+                : addToCart(productData);
+            }}
+          >
+            {/* renderizado condicional para mostrar un icono u otro */}
+            {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
+          </button>
+        </div>
       </div>
     </main>
   );

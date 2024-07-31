@@ -59,3 +59,9 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+@media (max-width: 767px) {
+  #root {
+    padding-top: 0.5rem;
+  }
+}
