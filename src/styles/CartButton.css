@@ -4,13 +4,13 @@
   border-radius: 9999px;
   cursor: pointer;
   display: flex;
-  height: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
   justify-content: center;
   padding: 4px;
   position: absolute;
   right: 12rem;
   transition: all 0.3s ease;
-  width: 2rem;
   z-index: 100;
 }
 
@@ -22,5 +22,7 @@
 @media (max-width: 767px) {
   .cart-button {
     right: 2.5rem;
+    height: 2rem;
+    width: 2rem;
   }
 }

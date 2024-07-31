@@ -3,7 +3,7 @@ import '../styles/DetailProduct.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.ts'; //importamos el hook
 import LazyImage from './LazyImage.tsx';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 interface DetailProductProps {
   products: AllProducts;
@@ -39,9 +39,9 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
 
   return (
     <main>
-      <Link to="/">
-        <button className="button-back">Back to list</button>
-      </Link>
+      {/* <Link to="/">
+        <button className="button-back">Back</button>
+      </Link> */}
       <div className="product">
         <LazyImage
           src={productData.thumbnail}

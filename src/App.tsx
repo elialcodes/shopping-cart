@@ -11,7 +11,7 @@ function App(): JSX.Element {
   //tomamos lo que nos interesa de useQuery
   const { data } = useProduct();
 
-  // console.log(data);
+  console.log(data);
 
   //llamamos a función del hook que hace el filtado
   const { filterProducts, higherPrice } = useFilters();
@@ -22,8 +22,6 @@ function App(): JSX.Element {
   const filteredProducts = filterProducts(data || []);
 
   const maxValueInputRange = higherPrice(filteredProducts);
-
-  console.log(maxValueInputRange);
 
   return (
     // envolvemos con CartProvider para que su children tenga acceso a ese

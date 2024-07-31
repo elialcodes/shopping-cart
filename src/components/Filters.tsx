@@ -32,7 +32,7 @@ function Filters({ maxPrice }: FiltersProp) {
   ) => {
     //con spreed tomamos el valor de filters y sólo sobreescribimos la propiedad category
     setFilters({
-      ...filters,
+      minPrice: 0,
       category: event.target.value,
     });
   };
@@ -41,7 +41,7 @@ function Filters({ maxPrice }: FiltersProp) {
     <section className="filters">
       <div>
         <label htmlFor={minPriceFilterId}>Price</label>
-        {/* <span>$ {filters.minPrice}</span> */}
+        <span>$ 0</span>
         <input
           type="range"
           id={minPriceFilterId}

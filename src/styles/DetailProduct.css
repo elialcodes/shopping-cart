@@ -1,13 +1,13 @@
-.button-back {
+/* .button-back {
   text-align: center;
   margin-top: 2rem;
   background-color: #403d3d;
   font-size: 0.9rem;
   padding: 0.4rem 0.6rem;
-}
+} */
 
 .product {
-  width: 50%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@
   background: #111;
   color: #fff;
   padding: 1rem;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   border-radius: 10px;
 }
 
@@ -76,5 +76,12 @@
   .product span,
   .product p {
     font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .product {
+    width: 50%;
+    margin-top: 3rem;
   }
 }
