@@ -24,60 +24,62 @@ function Cart(): JSX.Element {
         {cart.length === 0 && (
           <p className="empty-cart">There is no product yet</p>
         )}
-        <ul>
-          {cart.map(product => (
-            <li key={product.id}>
-              <LazyImage
-                src={product.thumbnail}
-                alt={product.title}
-                placeholder="http://via.placeholder.com/"
-              />
-              {/* <img src={product.thumbnail} alt={product.title} /> */}
-              <div>
-                <strong>{product.title}</strong> - ${product.price}
-              </div>
-              <div className="quantity">
-                <small>Qty: {product.quantity}</small>
-                {product.quantity !== undefined && product.quantity > 1 && (
-                  <button
-                    className="button-units"
-                    onClick={() => decrementQuantityFromCart(product)}
-                  >
-                    -
-                  </button>
-                )}
-                {/* función addToCart para sincronizar con el listado total*/}
-                <button
-                  className="button-units"
-                  onClick={() => addToCart(product)}
-                >
-                  +
-                </button>
-
-                <button
-                  className="button-remove"
-                  onClick={() => removeFromCart(product)}
-                >
-                  <RemoveFromCartIcon />
-                </button>
-              </div>
-              <div>
-                <Link to={`/detailProduct/${product.id}`}>
-                  <button
-                    className="button-see-product"
-                    onClick={() => displayCart()}
-                  >
-                    See Product
-                  </button>
-                </Link>
-              </div>
-            </li>
-          ))}
-        </ul>
         {cart.length !== 0 && (
-          <button className="clear-cart-button" onClick={clearCart}>
-            <ClearCartIcon />
-          </button>
+          <>
+            <ul>
+              {cart.map(product => (
+                <li key={product.id}>
+                  <LazyImage
+                    src={product.thumbnail}
+                    alt={product.title}
+                    placeholder="http://via.placeholder.com/"
+                  />
+                  {/* <img src={product.thumbnail} alt={product.title} /> */}
+                  <div>
+                    <strong>{product.title}</strong> - ${product.price}
+                  </div>
+                  <div className="quantity">
+                    <small>Qty: {product.quantity}</small>
+                    {product.quantity !== undefined && product.quantity > 1 && (
+                      <button
+                        className="button-units"
+                        onClick={() => decrementQuantityFromCart(product)}
+                      >
+                        -
+                      </button>
+                    )}
+                    {/* función addToCart para sincronizar con el listado total */}
+                    <button
+                      className="button-units"
+                      onClick={() => addToCart(product)}
+                    >
+                      +
+                    </button>
+
+                    <button
+                      className="button-remove"
+                      onClick={() => removeFromCart(product)}
+                    >
+                      <RemoveFromCartIcon />
+                    </button>
+                  </div>
+                  <div>
+                    <Link to={`/detailProduct/${product.id}`}>
+                      <button
+                        className="button-see-product"
+                        onClick={() => displayCart()}
+                      >
+                        See Product
+                      </button>
+                    </Link>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <button className="clear-cart-button" onClick={clearCart}>
+              <ClearCartIcon />
+            </button>
+          </>
         )}
       </aside>
     </>
