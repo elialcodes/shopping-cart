@@ -82,21 +82,19 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
               }}
               readOnly
             />
-          </div>
-          <div className="reviews">
             <button className="reviews-button">Reviews</button>
-            {/* <ul className="reviews-comment">
-              {productData.reviews.map((review, index) => {
-                return (
-                  <li key={productData.id}>
-                    <p>
-                      Customer {index + 1}: {review.comment}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul> */}
           </div>
+          <ul className="reviews-comment">
+            {productData.reviews.map((review, index) => {
+              return (
+                <li key={productData.id}>
+                  <p>
+                    Customer {index + 1}: {review.comment}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
           <button
             // renderizado condicional para añadir una clase u otra y estilar el botón
             className={`button-cart ${isProductInCart ? 'inCart' : 'notInCar'}`}
