@@ -56,26 +56,9 @@
   text-align: start;
 }
 
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* .reviews-comment {
-  border: 0.5px solid lightcoral;
-  border-radius: 10px;
-  font-size: 1rem;
-  margin: 0.5rem 0 0 0;
-}
-
-.reviews-comment li {
-  padding-left: 1rem;
-} */
-
 .button-cart {
-  width: 40%;
-  margin: 2rem auto 0 auto;
+  width: 100%;
+  margin: 1rem auto 0 auto;
 }
 
 .inCart {
@@ -146,10 +129,6 @@
     font-size: 0.9rem;
     line-height: 1.3rem;
   }
-
-  /* .reviews-comment {
-    margin: 1rem 0 0 0;
-  } */
 
   .button-cart {
     width: 100%;

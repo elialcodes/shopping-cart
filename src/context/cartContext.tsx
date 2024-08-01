@@ -60,9 +60,10 @@ export function CartProvider({ children }: CartProviderType) {
     setCart(prevState => prevState.filter(item => item.id !== product.id));
   };
 
-  //función para limpiar el carrito
+  //función para limpiar el carrito completo y esconderlo
   const clearCart = () => {
     setCart([]);
+    setShowedCart(false);
   };
 
   //función para abrir o esconder el carrito

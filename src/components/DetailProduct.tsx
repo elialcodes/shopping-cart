@@ -60,7 +60,6 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
           <p>{productData.description}</p>
           <div className="rating">
             <Rate productData={productData} />
-            <button className="reviews-button">Reviews</button>
           </div>
           <Reviews productData={productData} />
           <button

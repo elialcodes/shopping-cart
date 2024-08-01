@@ -1,3 +1,7 @@
+.reviews-button {
+  width: 6rem;
+}
+
 .reviews-comment {
   border: 0.5px solid lightcoral;
   border-radius: 10px;
@@ -10,6 +14,10 @@
 }
 
 @media (max-width: 767px) {
+  .reviews-button {
+    margin-top: 1rem;
+  }
+
   .product p {
     font-size: 0.9rem;
   }
