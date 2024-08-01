@@ -1,0 +1,20 @@
+.reviews-comment {
+  border: 0.5px solid lightcoral;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.reviews-comment li {
+  padding-left: 1rem;
+}
+
+@media (max-width: 767px) {
+  .product p {
+    font-size: 0.9rem;
+  }
+
+  .reviews-comment {
+    margin: 1rem 0 0 0;
+  }
+}

@@ -1,0 +1,10 @@
+.span-rating {
+  font-size: 1rem;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .span-rating {
+    font-size: 0.9rem;
+  }
+}

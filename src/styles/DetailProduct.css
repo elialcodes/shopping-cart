@@ -39,8 +39,7 @@
   margin: 1rem 0.1rem;
 }
 
-.span-brand,
-.span-rating {
+.span-brand {
   font-size: 1rem;
   display: block;
 }
@@ -63,7 +62,7 @@
   gap: 1rem;
 }
 
-.reviews-comment {
+/* .reviews-comment {
   border: 0.5px solid lightcoral;
   border-radius: 10px;
   font-size: 1rem;
@@ -72,7 +71,7 @@
 
 .reviews-comment li {
   padding-left: 1rem;
-}
+} */
 
 .button-cart {
   width: 40%;
@@ -148,9 +147,9 @@
     line-height: 1.3rem;
   }
 
-  .reviews-comment {
+  /* .reviews-comment {
     margin: 1rem 0 0 0;
-  }
+  } */
 
   .button-cart {
     width: 100%;

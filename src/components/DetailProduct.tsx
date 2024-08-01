@@ -3,9 +3,8 @@ import '../styles/DetailProduct.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './icons';
 import { useCart } from '../hooks/useCart.ts'; //importamos el hook
 import LazyImage from './LazyImage.tsx';
-import { Rating } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Rate from './Rate.tsx';
+import Reviews from './Reviews.tsx';
 // import { Link } from 'react-router-dom';
 
 interface DetailProductProps {
@@ -37,7 +36,7 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
     return cart.some(item => item.id === product.id);
   };
 
-  //metermos esa función en una variable que será true o false
+  //metemos esa función en una variable que será true o false
   const isProductInCart = checkProductInCart(productData);
 
   return (
@@ -60,41 +59,10 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
         <div className="product-container-2">
           <p>{productData.description}</p>
           <div className="rating">
-            <span className="span-rating">Rating: {productData.rating}</span>
-            {/* componente importado de una librería y personalizado con corazones  */}
-            <Rating
-              name="customized-color"
-              value={productData.rating}
-              max={5}
-              getLabelText={(value: number) =>
-                `${value} Heart${value !== 1 ? 's' : ''}`
-              }
-              precision={0.5}
-              icon={<FavoriteIcon fontSize="inherit" />}
-              emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
-              sx={{
-                '& .MuiRating-iconFilled': {
-                  color: 'red',
-                },
-                '& .MuiRating-iconEmpty': {
-                  color: 'grey',
-                },
-              }}
-              readOnly
-            />
+            <Rate productData={productData} />
             <button className="reviews-button">Reviews</button>
           </div>
-          <ul className="reviews-comment">
-            {productData.reviews.map((review, index) => {
-              return (
-                <li key={productData.id}>
-                  <p>
-                    Customer {index + 1}: {review.comment}
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
+          <Reviews productData={productData} />
           <button
             // renderizado condicional para añadir una clase u otra y estilar el botón
             className={`button-cart ${isProductInCart ? 'inCart' : 'notInCar'}`}
