@@ -70,6 +70,7 @@ interface CartContextType {
   cart: AllProducts;
   setCart: Dispatch<SetStateAction<AllProducts>>;
   showedCart: boolean;
+  totalUnitCart: number;
   addToCart: (product: Product) => void;
   removeFromCart: (product: Product) => void;
   decrementQuantityFromCart: (product: Product) => void;

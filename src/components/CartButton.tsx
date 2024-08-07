@@ -4,13 +4,14 @@ import '../styles/CartButton.css';
 
 function CartButton(): JSX.Element {
   //importamos todo lo que necesitamos del hook
-  const { displayCart, cart } = useCart();
+  const { displayCart, totalUnitCart } = useCart();
+
   return (
     <div className="container-cart-button">
       <button className="cart-button" onClick={() => displayCart()}>
         <CartIcon />
       </button>
-      <button className="units-cart">{cart.length}</button>
+      <span className="units-cart">{totalUnitCart}</span>
     </div>
   );
 }

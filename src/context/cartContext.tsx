@@ -73,7 +73,12 @@ export function CartProvider({ children }: CartProviderType) {
     } else setShowedCart(true);
   };
 
-  //en el return envolvemos con el contexto y su método provider, los componentes que lo
+  //con un reduce calculamos el total de unidades del carrito
+  const totalUnitCart = cart.reduce((acc, product) => {
+    return acc + (product.quantity || 0);
+  }, 0);
+
+  //en el return envolvemos dentro del contexto y su método provider, los componentes que lo
   //necesiten (será su children, el que sea) para que puedan acceder a el contexto
   //(los componentes se importarán el useContext y consumirán lo que hay en este useContext)
   return (
@@ -81,6 +86,7 @@ export function CartProvider({ children }: CartProviderType) {
       value={{
         cart,
         showedCart,
+        totalUnitCart,
         setCart,
         addToCart,
         decrementQuantityFromCart,
