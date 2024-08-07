@@ -9,6 +9,7 @@ header a {
   text-decoration: none;
   color: rgb(243, 165, 178);
   width: auto;
+  z-index: 200;
 }
 
 @media (max-width: 767px) {

@@ -24,8 +24,8 @@ function App(): JSX.Element {
   const maxValueInputRange = higherPrice(filteredProducts);
 
   return (
-    // envolvemos con CartProvider para que su children tenga acceso a ese
-    // context (CartContext), no necesitamos envolver la App, hay otro scope
+    //envolvemos con CartProvider para que su children tenga acceso a ese
+    //context (CartContext), no necesitamos envolver la App, hay otro scope
     <CartProvider>
       <Header />
       <Cart />
