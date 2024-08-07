@@ -17,7 +17,7 @@
   color: #fff;
   padding: 1rem;
   margin: 2rem auto;
-  border-radius: 10px;
+  border-radius: 0.8rem;
 }
 
 .product-container-1 {
@@ -29,7 +29,7 @@
 }
 
 .product .product img {
-  border-radius: 10px;
+  border-radius: 0.8rem;
   width: 100%;
   object-fit: cover;
   background: #fff;
