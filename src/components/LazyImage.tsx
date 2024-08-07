@@ -13,7 +13,7 @@ function LazyImage({ src, alt, placeholder }: LazyImageProps): JSX.Element {
     <div className="image-container">
       <img
         src={placeholder}
-        alt="loading..."
+        alt=""
         className={`placeholder ${loaded ? 'hidden' : ''}`}
       />
       <img
