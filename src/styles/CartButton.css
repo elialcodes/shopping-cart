@@ -1,3 +1,7 @@
+.container-cart-button {
+  display: flex;
+}
+
 .cart-button {
   background: rgb(244, 94, 119);
   border-radius: 9999px;
@@ -16,9 +20,24 @@
   border: 0.5px solid white;
 }
 
+.units-cart {
+  background: #373737;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  height: 1.6rem;
+  margin-left: -0.7rem;
+  margin-top: -0.7rem;
+  z-index: 600;
+}
+
 @media (max-width: 767px) {
   .cart-button {
     height: 2rem;
     width: 2rem;
+  }
+
+  .units-cart {
+    font-size: 0.6rem;
+    height: 1.4rem;
   }
 }
