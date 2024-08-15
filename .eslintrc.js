@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
@@ -10,6 +10,7 @@ module.exports = {
     'plugin:import/typescript',
     'prettier',
     'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime',
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -24,8 +25,9 @@ module.exports = {
     },
   },
   rules: {
+    'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'prettier/prettier': 'error',
   },
   env: {
     browser: true,

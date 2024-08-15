@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/react-in-jsx-scope */
 import { ClearCartIcon, RemoveFromCartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.ts';
 import { Link } from 'react-router-dom';

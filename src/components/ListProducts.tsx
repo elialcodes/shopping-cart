@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable react/react-in-jsx-scope */
 import { Link } from 'react-router-dom';
 import Filters from './Filters';
 import '../styles/ListProducts.css';
