@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 export function AddToCartIcon() {
   return (
     <svg

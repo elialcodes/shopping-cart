@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Routes, Route } from 'react-router-dom';
 import { useFilters } from './hooks/useFilters.ts';
 import { CartProvider } from './context/cartContext.tsx';

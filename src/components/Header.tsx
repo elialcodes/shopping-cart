@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Link } from 'react-router-dom';
 import { useCart } from '../hooks/useCart.ts';
 import CartButton from './CartButton.tsx';

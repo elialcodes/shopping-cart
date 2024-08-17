@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import '../styles/Reviews.css';
 import { useState } from 'react';
 
