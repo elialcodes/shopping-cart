@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { createContext, useState, ReactNode } from 'react';
 
 //definimos los tipos de las propiedades del provider

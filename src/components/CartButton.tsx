@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { CartIcon } from './icons.tsx';
 import { useCart } from '../hooks/useCart.ts';
 import '../styles/CartButton.css';

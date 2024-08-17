@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Routes, Route } from 'react-router-dom';
 import { useFilters } from './hooks/useFilters.ts';
 import { CartProvider } from './context/cartContext.tsx';
@@ -10,8 +11,6 @@ import useProduct from './hooks/useProducts.ts';
 function App(): JSX.Element {
   //tomamos lo que nos interesa de useQuery
   const { data } = useProduct();
-
-  console.log(data);
 
   //llamamos a función del hook que hace el filtado
   const { filterProducts, higherPrice } = useFilters();

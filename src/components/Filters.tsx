@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useId } from 'react';
 import { useFilters } from '../hooks/useFilters';
 import '../styles/Filters.css';
