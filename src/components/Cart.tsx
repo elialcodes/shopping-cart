@@ -47,14 +47,13 @@ function Cart(): JSX.Element {
                         -
                       </button>
                     )}
-                    {/* función addToCart para sincronizar con el listado total */}
+                    {/* función addToCart para incrementar el numero de items del cart*/}
                     <button
                       className="button-units"
                       onClick={() => addToCart(product)}
                     >
                       +
                     </button>
-
                     <button
                       className="button-remove"
                       onClick={() => removeFromCart(product)}
@@ -63,6 +62,8 @@ function Cart(): JSX.Element {
                     </button>
                   </div>
                   <div>
+                    {/* link que nos lleva a ver el detalle del producto y ejecuta 
+                    displayCart para ocultar el cart */}
                     <Link to={`/detailProduct/${product.id}`}>
                       <button
                         className="button-see-product"

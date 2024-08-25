@@ -22,8 +22,8 @@ function ListProducts({ products, maxPrice }: LisProductsProps) {
   if (isError)
     return (
       <div>
-        {/* TS no nos asegura que Error tenga la instancia error son su propiedad 
-        message, así que lo verificamos y si es así, accedemos a message. */}
+        {/* TS no nos asegura que error sea instancia del objeto Error,  
+        así que lo verificamos y si es así, accedemos a propiedad message. */}
         Error: {error instanceof Error ? error.message : 'Unknown error'}
       </div>
     );
@@ -66,8 +66,8 @@ function ListProducts({ products, maxPrice }: LisProductsProps) {
                   className={isProductInCart ? 'inCart' : 'notInCar'}
                   onClick={() => {
                     {
-                      /*renderizado condicional para borrar o añadir en el carro
-                    desde la lista de productos*/
+                      /*renderizado condicional para llamar a una u otra función:
+                      borrar o añadir al carro desde la lista de productos*/
                     }
                     isProductInCart
                       ? removeFromCart(product)

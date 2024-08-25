@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext } from 'react'; //necesario para utilizar el contexto que queramos
 import { CartContext } from '../context/cartContext.tsx';
 
 export function useCart() {
@@ -10,6 +10,6 @@ export function useCart() {
   if (context === undefined) {
     throw new Error('useCart must be used within a CartProvider');
   }
-
+  //si todo está correcto, devolvemos el contexto
   return context;
 }

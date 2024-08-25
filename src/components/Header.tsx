@@ -4,7 +4,8 @@ import CartButton from './CartButton.tsx';
 import '../styles/Header.css';
 
 function Header(): JSX.Element {
-  //importamos lo que nos interesa del hook useCart
+  //importamos lo que nos interesa del hook useCart, que a su vez se ha nutrido del context
+  //FUNCIONARÍA TAMBIÉN SI NOS LO IMPORTAMOS DIRECTAMENTE DEL USECONTEXT.
   const { showedCart, displayCart } = useCart();
 
   //creamos una función para que, estando el carrito desplegado,

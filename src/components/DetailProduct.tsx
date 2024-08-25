@@ -67,8 +67,8 @@ function DetailProduct({ products }: DetailProductProps): JSX.Element {
             className={`button-cart ${isProductInCart ? 'inCart' : 'notInCar'}`}
             onClick={() => {
               {
-                /*renderizado condicional para poder borrar o añadir al carro
-                desde la vista detalle de un producto*/
+                /*renderizado condicional para llamar a una u otra función y así borrar o
+                añadir al carro desde la vista detalle de un producto*/
               }
               isProductInCart
                 ? removeFromCart(productData)

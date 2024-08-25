@@ -1,5 +1,5 @@
 .reviews-button {
-  width: 6rem;
+  width: 8rem;
 }
 
 .reviews-comment {
@@ -11,6 +11,10 @@
 
 .reviews-comment li {
   padding-left: 1rem;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 767px) {

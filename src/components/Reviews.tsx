@@ -6,22 +6,31 @@ interface ReviewsProps {
 }
 
 function Reviews({ productData }: ReviewsProps): JSX.Element {
-  const [comments, setComments] = useState<boolean>(false);
+  const [showComments, setShowComments] = useState<boolean>(false);
 
-  const handleClickComments = () => {
-    if (comments) {
-      setComments(false);
+  const handleClickShowComments = () => {
+    if (showComments) {
+      setShowComments(false);
     } else {
-      setComments(true);
+      setShowComments(true);
     }
   };
 
   return (
     <>
-      <button onClick={handleClickComments} className="reviews-button">
-        Reviews
+      <button
+        onClick={handleClickShowComments}
+        className={`reviews-button ${showComments === false ? '' : 'hidden'}`}
+      >
+        See reviews
       </button>
-      {comments && (
+      <button
+        onClick={handleClickShowComments}
+        className={`reviews-button ${showComments ? '' : 'hidden'}`}
+      >
+        Hide reviews
+      </button>
+      {showComments && (
         <ul className="reviews-comment">
           {productData.reviews.map((review, index) => {
             return (

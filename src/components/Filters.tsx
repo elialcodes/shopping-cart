@@ -6,8 +6,8 @@ type FiltersProp = {
   maxPrice: number;
 };
 function Filters({ maxPrice }: FiltersProp) {
-  //no pasamos nada por props, de nuestro hook nos traemos los valores de filters
-  //y setFilters, que a su vez los obtiene del context, asi accedemos al estado global
+  //de nuestro hook nos traemos los valores de filters y setFilters,
+  //que a su vez los obtiene del context, asi accedemos al estado global.
   //TAMBIÉN FUNCIONA SI DESDE ESTE COMPONENTE ACCEDEMOS DIRECTAMENTE AL
   //USECONTEXT Y NO UTILIZAMOS EL CUSTOM HOOK
   const { filters, setFilters } = useFilters();
@@ -30,7 +30,7 @@ function Filters({ maxPrice }: FiltersProp) {
   const handleChangeCategory = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    //con spreed tomamos el valor de filters y sólo sobreescribimos la propiedad category
+    //como cambiamos de categoría, cambian los precios, y nos interesa poner minPrice a 0
     setFilters({
       minPrice: 0,
       category: event.target.value,
